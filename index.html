@@ -1,0 +1,143 @@
+---
+// src/pages/index.astro
+// This code builds a pure static HTML page. 100% Hack-proof.
+---
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AfriConnect | Premium Telecom & Healthcare Access</title>
+    <style>
+      /* Ultra-Lightweight, High-Security Minimalist Design System */
+      :root {
+        --bg: #f9fafb;
+        --card-bg: #ffffff;
+        --text-main: #111827;
+        --text-muted: #4b5563;
+        --accent: #059669; /* Trustworthy Emerald Green */
+        --border: #e5e7eb;
+      }
+      body {
+        font-family: system-ui, -apple-system, sans-serif;
+        background-color: var(--bg);
+        color: var(--text-main);
+        margin: 0;
+        padding: 20px;
+        line-height: 1.5;
+        -webkit-font-smoothing: antialiased;
+      }
+      .container {
+        max-width: 600px;
+        margin: 40px auto;
+      }
+      header {
+        text-align: center;
+        margin-bottom: 40px;
+      }
+      h1 {
+        font-size: 2rem;
+        font-weight: 800;
+        letter-spacing: -0.025em;
+        margin-bottom: 8px;
+      }
+      .subtitle {
+        color: var(--text-muted);
+        font-size: 1.1rem;
+      }
+      /* Beautiful, Readable Content Card Component */
+      .card {
+        background: var(--card-bg);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 24px;
+        margin-bottom: 24px;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        transition: transform 0.2s ease;
+      }
+      .card:hover {
+        transform: translateY(-2px);
+      }
+      .pill {
+        display: inline-block;
+        background: #ecfdf5;
+        color: var(--accent);
+        padding: 4px 12px;
+        border-radius: 9999px;
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-bottom: 12px;
+      }
+      .card-title {
+        font-size: 1.3rem;
+        font-weight: 700;
+        margin: 0 0 8px 0;
+      }
+      .card-desc {
+        color: var(--text-muted);
+        font-size: 0.95rem;
+        margin-bottom: 20px;
+      }
+      /* Secure, Lightweight Affiliate Button */
+      .btn {
+        display: block;
+        text-align: center;
+        background-color: var(--accent);
+        color: white;
+        text-decoration: none;
+        padding: 12px;
+        border-radius: 10px;
+        font-weight: 600;
+        font-size: 1rem;
+      }
+      footer {
+        text-align: center;
+        margin-top: 60px;
+        font-size: 0.8rem;
+        color: var(--text-muted);
+      }
+    </style>
+  </head>
+  <body>
+
+    <div class="container">
+      <header>
+        <h1>AfriConnect</h1>
+        <p class="subtitle">Seamless digital access and essential care for Africa.</p>
+      </header>
+
+      <main>
+        <!-- PILLAR 1: TRAVEL SECTOR (AIRALO INTEGRATION) -->
+        <div class="card">
+          <span class="pill">Travel Tools</span>
+          <h2 class="card-title">International eSIM Data Plans</h2>
+          <p class="card-desc">Traveling to Africa? Instantly activate premium regional 4G/5G mobile data networks directly on your smartphone via Airalo before you land.</p>
+          <!-- Safe, Direct Affiliate Link Pointing To Partner -->
+          <a href="https://airalo.com" class="btn" target="_blank" rel="noopener noreferrer">Explore African eSIM Plans</a>
+        </div>
+
+        <!-- PILLAR 2: DATA & REMITTANCE SECTOR (DING INTEGRATION) -->
+        <div class="card">
+          <span class="pill">Diaspora Remittance</span>
+          <h2 class="card-title">Instant Airtime & Bundles</h2>
+          <p class="card-desc">Keep your family connected. Send instant, zero-tax mobile top-ups and data bundles straight to MTN, Airtel, and Orange devices across the continent.</p>
+          <a href="https://ding.com" class="btn" target="_blank" rel="noopener noreferrer">Send Airtime Now</a>
+        </div>
+
+        <!-- PILLAR 3: HEALTHCARE SECTOR (TELEHEALTH INTEGRATION) -->
+        <div class="card">
+          <span class="pill">Family Wellness</span>
+          <h2 class="card-title">Remote Doctor Consultations</h2>
+          <p class="card-desc">Provide your loved ones back home with secure access to certified, live remote medical consultations and ongoing health monitoring services.</p>
+          <a href="https://54healthcare.com" class="btn" target="_blank" rel="noopener noreferrer">Book a Telehealth Consult</a>
+        </div>
+      </main>
+
+      <footer>
+        <p>© 2026 AfriConnect. All rights reserved.</p>
+        <p>Disclaimer: We securely partner with licensed telecom operators and clinical healthcare platforms. Payments and services are fulfilled safely on our partner infrastructures.</p>
+      </footer>
+    </div>
+
+  </body>
+</html>
