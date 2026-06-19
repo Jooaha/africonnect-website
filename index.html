@@ -1,139 +1,278 @@
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ShonaPay | Premium Telecom & Healthcare Access</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShonaPay | Your digital access to the world</title>
     <style>
-      /* Ultra-Lightweight, High-Security Minimalist Design System */
-      :root {
-        --bg: #f9fafb;
-        --card-bg: #ffffff;
-        --text-main: #111827;
-        --text-muted: #4b5563;
-        --accent: #059669; /* Trustworthy Emerald Green */
-        --border: #e5e7eb;
-      }
-      body {
-        font-family: system-ui, -apple-system, sans-serif;
-        background-color: var(--bg);
-        color: var(--text-main);
-        margin: 0;
-        padding: 20px;
-        line-height: 1.5;
-        -webkit-font-smoothing: antialiased;
-      }
-      .container {
-        max-width: 600px;
-        margin: 40px auto;
-      }
-      header {
-        text-align: center;
-        margin-bottom: 40px;
-      }
-      h1 {
-        font-size: 2rem;
-        font-weight: 800;
-        letter-spacing: -0.025em;
-        margin-bottom: 8px;
-      }
-      .subtitle {
-        color: var(--text-muted);
-        font-size: 1.1rem;
-      }
-      /* Beautiful, Readable Content Card Component */
-      .card {
-        background: var(--card-bg);
-        border: 1px solid var(--border);
-        border-radius: 16px;
-        padding: 24px;
-        margin-bottom: 24px;
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-        transition: transform 0.2s ease;
-      }
-      .card:hover {
-        transform: translateY(-2px);
-      }
-      .pill {
-        display: inline-block;
-        background: #ecfdf5;
-        color: var(--accent);
-        padding: 4px 12px;
-        border-radius: 9999px;
-        font-size: 0.75rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        margin-bottom: 12px;
-      }
-      .card-title {
-        font-size: 1.3rem;
-        font-weight: 700;
-        margin: 0 0 8px 0;
-      }
-      .card-desc {
-        color: var(--text-muted);
-        font-size: 0.95rem;
-        margin-bottom: 20px;
-      }
-      /* Secure, Lightweight Affiliate Button */
-      .btn {
-        display: block;
-        text-align: center;
-        background-color: var(--accent);
-        color: white;
-        text-decoration: none;
-        padding: 12px;
-        border-radius: 10px;
-        font-weight: 600;
-        font-size: 1rem;
-      }
-      footer {
-        text-align: center;
-        margin-top: 60px;
-        font-size: 0.8rem;
-        color: var(--text-muted);
-      }
+        :root {
+            --primary: #0284c7;
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --gray: #64748b;
+        }
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        /* Language Dropdown Container */
+        .top-bar {
+            background: #fff;
+            padding: 0.5rem 2rem;
+            text-align: right;
+            border-bottom: 1px solid #f1f5f9;
+        }
+        .lang-select {
+            padding: 0.3rem 0.5rem;
+            border: 1px solid #cbd5e1;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            color: var(--dark);
+            cursor: pointer;
+        }
+
+        header {
+            background-color: white;
+            padding: 3rem 1rem;
+            text-align: center;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        /* Increased Title Font Size */
+        header h1 { 
+            margin: 0; 
+            color: var(--dark); 
+            font-size: 3.2rem; 
+            font-weight: 800;
+        }
+        p.subtitle { 
+            color: var(--gray); 
+            font-size: 1.3rem; 
+            margin-top: 0.75rem; 
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 3rem auto;
+            padding: 0 1rem;
+        }
+
+        /* Section Headings */
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            position: relative;
+            color: var(--dark);
+        }
+
+        /* About Section Design */
+        .about-box {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            margin-bottom: 4rem;
+        }
+        .about-text {
+            font-size: 1.1rem;
+            color: #334155;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+        .mv-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        .mv-card {
+            background: var(--light);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary);
+        }
+        .mv-card h3 { margin: 0 0 0.5rem 0; color: var(--dark); }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+        .card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+            border: 1px solid #e2e8f0;
+            display: flex;
+            flex-direction: column;
+        }
+        .card h2 { color: var(--primary); margin-top: 0; font-size: 1.5rem; }
+        .card p { color: #334155; flex-grow: 1; }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            text-decoration: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            text-align: center;
+            font-weight: 600;
+            margin-top: 1.5rem;
+            transition: background 0.2s;
+        }
+        .btn:hover { background-color: #0369a1; }
+
+        /* Footer & Social Styles */
+        footer {
+            text-align: center;
+            padding: 3rem 1rem;
+            color: var(--gray);
+            font-size: 0.9rem;
+            border-top: 1px solid #e2e8f0;
+            background: white;
+        }
+        .social-links {
+            margin-bottom: 1.5rem;
+        }
+        .social-icon {
+            display: inline-block;
+            margin: 0 0.75rem;
+            color: var(--gray);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+        .social-icon:hover { color: var(--primary); }
+        .footer-links {
+            margin: 1rem 0;
+        }
+        .footer-links a {
+            color: var(--gray);
+            text-decoration: none;
+            margin: 0 1rem;
+        }
+        .footer-links a:hover { text-decoration: underline; }
+        .disclaimer {
+            max-width: 700px;
+            margin: 1.5rem auto 0;
+            font-size: 0.8rem;
+            opacity: 0.8;
+            line-height: 1.4;
+        }
+
+        /* Floating AI Chat Assistant Widget Placeholder Button */
+        .ai-chat-widget {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--dark);
+            color: white;
+            padding: 0.8rem 1.2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: transform 0.2s;
+        }
+        .ai-chat-widget:hover { transform: scale(1.05); }
     </style>
-  </head>
-  <body>
+</head>
+<body>
 
-    <div class="container">
-      <header>
-        <h1>ShonaPay</h1>
-        <p class="subtitle">Seamless digital access and essential care for Africa.</p>
-      </header>
-
-      <main>
-        <!-- PILLAR 1: TRAVEL SECTOR (AIRALO INTEGRATION) -->
-        <div class="card">
-          <span class="pill">Travel Tools</span>
-          <h2 class="card-title">International eSIM Data Plans</h2>
-          <p class="card-desc">Traveling to Africa? Instantly activate premium regional 4G/5G mobile data networks directly on your smartphone via Airalo before you land.</p>
-          <!-- Safe, Direct Affiliate Link Pointing To Partner -->
-          <a href="https://airalo.com" class="btn" target="_blank" rel="noopener noreferrer">Explore African eSIM Plans</a>
-        </div>
-
-        <!-- PILLAR 2: DATA & REMITTANCE SECTOR (DING INTEGRATION) -->
-        <div class="card">
-          <span class="pill">Diaspora Remittance</span>
-          <h2 class="card-title">Instant Airtime & Bundles</h2>
-          <p class="card-desc">Keep your family connected. Send instant, zero-tax mobile top-ups and data bundles straight to MTN, Airtel, and Orange devices across the continent.</p>
-          <a href="https://ding.com" class="btn" target="_blank" rel="noopener noreferrer">Send Airtime Now</a>
-        </div>
-
-        <!-- PILLAR 3: HEALTHCARE SECTOR (TELEHEALTH INTEGRATION) -->
-        <div class="card">
-          <span class="pill">Family Wellness</span>
-          <h2 class="card-title">Remote Doctor Consultations</h2>
-          <p class="card-desc">Provide your loved ones back home with secure access to certified, live remote medical consultations and ongoing health monitoring services.</p>
-          <a href="https://54healthcare.com" class="btn" target="_blank" rel="noopener noreferrer">Book a Telehealth Consult</a>
-        </div>
-      </main>
-
-      <footer>
-        <p>© 2026 ShonaPay. All rights reserved.</p>
-        <p>Disclaimer: We securely partner with licensed telecom operators and clinical healthcare platforms. Payments and services are fulfilled safely on our partner infrastructures.</p>
-      </footer>
+    <!-- Language Selector Top Bar -->
+    <div class="top-bar">
+        <select class="lang-select">
+            <option value="en">🌐 English</option>
+            <option value="fr">Français (French)</option>
+            <option value="ar">العربية (Arabic)</option>
+            <option value="sw">Kiswahili (Swahili)</option>
+        </select>
     </div>
 
-  </body>
+    <header>
+        <h1>ShonaPay</h1>
+        <p class="subtitle">Your digital access to the world.</p>
+    </header>
+
+    <div class="container">
+        
+        <!-- About Us Section -->
+        <section class="about-box">
+            <h2 class="section-title">About Us</h2>
+            <p class="about-text">ShonaPay bridge structural connectivity gaps by providing individuals, businesses, and travellers with highly resilient data access platforms and critical communication links across borders.</p>
+            
+            <div class="mv-grid">
+                <div class="mv-card">
+                    <h3>Mission</h3>
+                    <p>To eliminate communications boundaries and power global connections through accessible, instant digital utility tools.</p>
+                </div>
+                <div class="mv-card">
+                    <h3>Vision</h3>
+                    <p>An completely connected continent where modern borderless access to critical networks is available to everyone.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <h2 class="section-title">Our Services</h2>
+        <main class="services-grid">
+            <!-- Travel Tools Section -->
+            <section class="card">
+                <h2>International eSIM Data Plans</h2>
+                <p>Traveling to Africa? Instantly activate premium regional mobile data directly on your smartphone before you land. Stay connected seamlessly across reliable local networks.</p>
+                <a href="#" class="btn">Explore eSIM Plans</a>
+            </section>
+
+            <!-- Diaspora Remittance Section -->
+            <section class="card">
+                <h2>Instant Airtime & Bundles</h2>
+                <p>Keep your family connected. Send instant mobile top-ups and data bundles straight to Vodafone, MTN, Airtel, Orange, and other major networks across the continent.</p>
+                <a href="#" class="btn">Send Airtime Now</a>
+            </section>
+
+            <!-- Family Wellness Section -->
+            <section class="card">
+                <h2>Remote Doctor Consultations</h2>
+                <p>Provide your loved ones back home with secure access to certified, live remote medical consultations and ongoing health monitoring services.</p>
+                <a href="#" class="btn">Book a Telehealth Consult</a>
+            </section>
+        </main>
+
+    </div>
+
+    <!-- AI Helper Floating Action Panel -->
+    <div class="ai-chat-widget" onclick="alert('Our AI assistant setup is initialization... Stay tuned!')">
+        💬 Chat with AI Assistant
+    </div>
+
+    <footer>
+        <!-- Contact & Social Media Icons Links -->
+        <div class="social-links">
+            <a href="mailto:info@shonalpay.com" class="social-icon">✉️ Email Support</a>
+            <a href="#" class="social-icon">💼 LinkedIn</a>
+            <a href="#" class="social-icon">📱 WhatsApp</a>
+            <a href="#" class="social-icon">🌐 X (Twitter)</a>
+        </div>
+
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Legal Terms & Conditions</a>
+        </div>
+
+        <p>&copy; 2026 ShonaPay. All rights reserved.</p>
+        <p class="disclaimer">Disclaimer: We securely partner with licensed telecom operators and clinical healthcare platforms. Payments and services are fulfilled safely on our partner infrastructures.</p>
+    </footer>
+
+</body>
 </html>
