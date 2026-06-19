@@ -20,11 +20,13 @@
             line-height: 1.6;
         }
         
-        /* Language Dropdown Container */
-        .top-bar {
+        /* Top Navigation Bar */
+        .nav-bar {
             background: #fff;
-            padding: 0.5rem 2rem;
-            text-align: right;
+            padding: 0.75rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             border-bottom: 1px solid #f1f5f9;
         }
         .lang-select {
@@ -36,70 +38,84 @@
             cursor: pointer;
         }
 
+        /* Hamburger Menu Icon */
+        .menu-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            padding: 0.5rem;
+            z-index: 1001;
+        }
+        .menu-btn span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: var(--dark);
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+
+        /* Hidden Side Panel for About Us */
+        .side-panel {
+            position: fixed;
+            top: 0;
+            right: -400px;
+            width: 320px;
+            height: 100%;
+            background: white;
+            box-shadow: -4px 0 15px rgba(0,0,0,0.1);
+            z-index: 1000;
+            transition: 0.4s ease;
+            padding: 3rem 2rem;
+            box-sizing: border-box;
+            overflow-y: auto;
+        }
+        .side-panel.open { right: 0; }
+        .panel-close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 1.5rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--gray);
+        }
+
         header {
             background-color: white;
-            padding: 3rem 1rem;
+            padding: 4rem 1rem;
             text-align: center;
             border-bottom: 1px solid #e2e8f0;
         }
-        /* Increased Title Font Size */
         header h1 { 
             margin: 0; 
             color: var(--dark); 
-            font-size: 3.2rem; 
+            font-size: 3.5rem; 
             font-weight: 800;
         }
         p.subtitle { 
             color: var(--gray); 
-            font-size: 1.3rem; 
+            font-size: 1.4rem; 
             margin-top: 0.75rem; 
         }
 
         .container {
             max-width: 1100px;
-            margin: 3rem auto;
+            margin: 4rem auto;
             padding: 0 1rem;
         }
 
-        /* Section Headings */
-        .section-title {
-            text-align: center;
-            font-size: 2rem;
-            margin-bottom: 2rem;
-            position: relative;
-            color: var(--dark);
-        }
+        /* Panel Typography */
+        .panel-title { font-size: 1.8rem; margin-bottom: 1rem; color: var(--dark); }
+        .panel-text { color: #334155; font-size: 1rem; margin-bottom: 2rem; }
+        .mv-section { margin-bottom: 1.5rem; border-left: 3px solid var(--primary); padding-left: 1rem; }
+        .mv-section h3 { margin: 0 0 0.25rem 0; font-size: 1.1rem; }
 
-        /* About Section Design */
-        .about-box {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 12px;
-            border: 1px solid #e2e8f0;
-            margin-bottom: 4rem;
-        }
-        .about-text {
-            font-size: 1.1rem;
-            color: #334155;
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto 2rem;
-        }
-        .mv-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1.5rem;
-        }
-        .mv-card {
-            background: var(--light);
-            padding: 1.5rem;
-            border-radius: 8px;
-            border-left: 4px solid var(--primary);
-        }
-        .mv-card h3 { margin: 0 0 0.5rem 0; color: var(--dark); }
-
-        /* Services Grid */
+        /* Services Grid Layout without Header */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -108,7 +124,7 @@
         }
         .card {
             background: white;
-            padding: 2rem;
+            padding: 2.5rem;
             border-radius: 12px;
             box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
             border: 1px solid #e2e8f0;
@@ -116,7 +132,7 @@
             flex-direction: column;
         }
         .card h2 { color: var(--primary); margin-top: 0; font-size: 1.5rem; }
-        .card p { color: #334155; flex-grow: 1; }
+        .card p { color: #334155; flex-grow: 1; font-size: 1rem; }
         
         .btn {
             display: inline-block;
@@ -132,45 +148,80 @@
         }
         .btn:hover { background-color: #0369a1; }
 
-        /* Footer & Social Styles */
+        /* Footer & SVG Icon Alignment */
         footer {
             text-align: center;
-            padding: 3rem 1rem;
+            padding: 4rem 1rem;
             color: var(--gray);
             font-size: 0.9rem;
             border-top: 1px solid #e2e8f0;
             background: white;
         }
         .social-links {
-            margin-bottom: 1.5rem;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
         }
-        .social-icon {
-            display: inline-block;
-            margin: 0 0.75rem;
+        .social-icon svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--gray);
+            transition: fill 0.2s;
+        }
+        .social-icon:hover svg { fill: var(--primary); }
+        
+        .footer-links { margin: 1.5rem 0; }
+        .footer-links button {
+            background: none;
+            border: none;
             color: var(--gray);
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.2s;
-        }
-        .social-icon:hover { color: var(--primary); }
-        .footer-links {
-            margin: 1rem 0;
-        }
-        .footer-links a {
-            color: var(--gray);
-            text-decoration: none;
+            cursor: pointer;
             margin: 0 1rem;
+            font-size: 0.9rem;
+            text-decoration: none;
         }
-        .footer-links a:hover { text-decoration: underline; }
+        .footer-links button:hover { text-decoration: underline; color: var(--primary); }
+        
         .disclaimer {
             max-width: 700px;
-            margin: 1.5rem auto 0;
+            margin: 2rem auto 0;
             font-size: 0.8rem;
-            opacity: 0.8;
-            line-height: 1.4;
+            opacity: 0.85;
+            line-height: 1.5;
         }
 
-        /* Floating AI Chat Assistant Widget Placeholder Button */
+        /* Modals for Policies */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(15, 23, 42, 0.6);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+        }
+        .modal-content {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            max-width: 650px;
+            width: 100%;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+            text-align: left;
+        }
+        .modal-close {
+            position: absolute;
+            top: 15px; right: 20px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--gray);
+        }
+
+        /* AI Floating Widget */
         .ai-chat-widget {
             position: fixed;
             bottom: 20px;
@@ -184,20 +235,43 @@
             cursor: pointer;
             font-size: 0.9rem;
             transition: transform 0.2s;
+            z-index: 999;
         }
         .ai-chat-widget:hover { transform: scale(1.05); }
     </style>
 </head>
 <body>
 
-    <!-- Language Selector Top Bar -->
-    <div class="top-bar">
+    <!-- Top Navigation Bar -->
+    <div class="nav-bar">
         <select class="lang-select">
             <option value="en">🌐 English</option>
-            <option value="fr">Français (French)</option>
-            <option value="ar">العربية (Arabic)</option>
-            <option value="sw">Kiswahili (Swahili)</option>
+            <option value="fr">Français</option>
+            <option value="ar">العربية</option>
+            <option value="sw">Kiswahili</option>
         </select>
+        
+        <button class="menu-btn" onclick="togglePanel()" aria-label="Toggle About Us">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+
+    <!-- Slide Out About Us Panel -->
+    <div id="aboutPanel" class="side-panel">
+        <button class="panel-close" onclick="togglePanel()">&times;</button>
+        <h2 class="panel-title">About Us</h2>
+        <p class="panel-text">ShonaPay bridges digital connectivity gaps, linking citizens, enterprises, and expats to highly resilient communication and healthcare platforms across borders.</p>
+        
+        <div class="mv-section">
+            <h3>Mission</h3>
+            <p class="panel-text" style="margin-bottom:0;">To eliminate communications boundaries and power global connections through accessible, instant digital utility tools.</p>
+        </div>
+        <div class="mv-section">
+            <h3>Vision</h3>
+            <p class="panel-text" style="margin-bottom:0;">Fully connected continent where modern borderless access to critical networks is available to everyone.</p>
+        </div>
     </div>
 
     <header>
@@ -206,73 +280,26 @@
     </header>
 
     <div class="container">
-        
-        <!-- About Us Section -->
-        <section class="about-box">
-            <h2 class="section-title">About Us</h2>
-            <p class="about-text">ShonaPay bridge structural connectivity gaps by providing individuals, businesses, and travellers with highly resilient data access platforms and critical communication links across borders.</p>
-            
-            <div class="mv-grid">
-                <div class="mv-card">
-                    <h3>Mission</h3>
-                    <p>To eliminate communications boundaries and power global connections through accessible, instant digital utility tools.</p>
-                </div>
-                <div class="mv-card">
-                    <h3>Vision</h3>
-                    <p>An completely connected continent where modern borderless access to critical networks is available to everyone.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Services Section -->
-        <h2 class="section-title">Our Services</h2>
+        <!-- Core Utility Services Grid Layout -->
         <main class="services-grid">
-            <!-- Travel Tools Section -->
             <section class="card">
                 <h2>International eSIM Data Plans</h2>
                 <p>Traveling to Africa? Instantly activate premium regional mobile data directly on your smartphone before you land. Stay connected seamlessly across reliable local networks.</p>
                 <a href="#" class="btn">Explore eSIM Plans</a>
             </section>
 
-            <!-- Diaspora Remittance Section -->
             <section class="card">
                 <h2>Instant Airtime & Bundles</h2>
                 <p>Keep your family connected. Send instant mobile top-ups and data bundles straight to Vodafone, MTN, Airtel, Orange, and other major networks across the continent.</p>
                 <a href="#" class="btn">Send Airtime Now</a>
             </section>
 
-            <!-- Family Wellness Section -->
             <section class="card">
                 <h2>Remote Doctor Consultations</h2>
                 <p>Provide your loved ones back home with secure access to certified, live remote medical consultations and ongoing health monitoring services.</p>
                 <a href="#" class="btn">Book a Telehealth Consult</a>
             </section>
         </main>
-
     </div>
 
-    <!-- AI Helper Floating Action Panel -->
-    <div class="ai-chat-widget" onclick="alert('Our AI assistant setup is initialization... Stay tuned!')">
-        💬 Chat with AI Assistant
-    </div>
-
-    <footer>
-        <!-- Contact & Social Media Icons Links -->
-        <div class="social-links">
-            <a href="mailto:info@shonalpay.com" class="social-icon">✉️ Email Support</a>
-            <a href="#" class="social-icon">💼 LinkedIn</a>
-            <a href="#" class="social-icon">📱 WhatsApp</a>
-            <a href="#" class="social-icon">🌐 X (Twitter)</a>
-        </div>
-
-        <div class="footer-links">
-            <a href="#">Privacy Policy</a>
-            <a href="#">Legal Terms & Conditions</a>
-        </div>
-
-        <p>&copy; 2026 ShonaPay. All rights reserved.</p>
-        <p class="disclaimer">Disclaimer: We securely partner with licensed telecom operators and clinical healthcare platforms. Payments and services are fulfilled safely on our partner infrastructures.</p>
-    </footer>
-
-</body>
-</html>
+    <!-- AI Helper Floating Button -->
