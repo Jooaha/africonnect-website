@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ShonaPay | Your digital access to the world</title>
 
-    <!-- External Fonts -->
+    <!-- Performance Optimization: Preconnect to Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
-    <!-- CSS Styles -->
     <style>
         :root {
             --primary: #0284c7;
@@ -17,23 +18,70 @@
             --gray: #64748b;
         }
         
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
             font-family: 'Inter', sans-serif;
             background-color: var(--light);
             color: var(--dark);
+            min-height: 100vh;
+        }
+
+        /* Accessibility: Prevent layout shift during typing */
+        #typing {
+            color: var(--primary);
+            border-right: 2px solid var(--primary);
+            padding-right: 2px;
         }
     </style>
 </head>
 <body>
 
-    <!-- Visible Content Goes Here -->
-    <h1>
-        ShonaPay
-        <span id="typing"></span>
-    </h1>
+    <!-- Semantic Layout Wrapper -->
+    <main>
+        <h1>
+            ShonaPay <span id="typing" aria-live="polite"></span>
+        </h1>
+    </main>
 
+    <!-- Missing JavaScript for the Typing Animation -->
+    <script>
+        const textElement = document.getElementById("typing");
+        const words = ["Easy", "Fast", "Secure"];
+        let wordIndex = 0;
+        let charIndex = 0;
+
+        function type() {
+            if (charIndex < words[wordIndex].length) {
+                textElement.textContent += words[wordIndex].charAt(charIndex);
+                charIndex++;
+                setTimeout(type, 150);
+            } else {
+                setTimeout(erase, 1000);
+            }
+        }
+
+        function erase() {
+            if (charIndex > 0) {
+                textElement.textContent = words[wordIndex].substring(0, charIndex - 1);
+                charIndex--;
+                setTimeout(erase, 100);
+            } else {
+                wordIndex = (wordIndex + 1) % words.length;
+                setTimeout(type, 500);
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", type);
+    </script>
 </body>
 </html>
+
 
 *{
     box-sizing:border-box;
