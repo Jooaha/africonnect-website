@@ -1,577 +1,634 @@
+Google AI model:
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ShonaPay | Seamless Global Connectivity & Essential Services</title>
-    <meta name="description" content="Access instant virtual eSIMs, global mobile airtime top-ups, and professional telehealth services across Africa through ShonaPay.">
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ShonaPay | Digital Access Services</title>
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #0F4C81;
+            --secondary: #00A8A8;
+            --accent: #F4A261;
+            --bg: #ffffff;
+            --text: #1F2937;
+            --muted: #4B5563; /* High-contrast safe gray */
+            --border: #E5E7EB;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Inter, system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            font-size: 19px; /* Enhanced base reading size */
+        }
+
+        /* ===== TOP BAR ===== */
+        .topbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 20px;
+            border-bottom: 2px solid var(--border);
+            position: sticky;
+            top: 0;
+            background: white;
+            z-index: 999;
+        }
+
+        .brand-name {
+            font-weight: 800;
+            font-size: 22px;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .menu-btn {
+            font-size: 32px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--text);
+            padding: 8px 16px; /* Expanded touch target */
+            min-width: 48px;
+            min-height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* ===== SIDE MENU OVERLAY ===== */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 76, 129, 0.98); /* Dynamic primary tinted backdrop */
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), left 0.3s;
+            z-index: 2000;
+            padding: 40px 20px;
+        }
+
+        .overlay.active {
+            left: 0;
+        }
+
+        .menu {
+            max-width: 500px;
+            margin: auto;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .menu a {
+            display: block;
+            color: white;
+            font-size: 24px;
+            font-weight: 700;
+            padding: 18px;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .menu a:hover, .menu a:focus {
+            color: var(--accent);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 40px;
+            color: white;
+            cursor: pointer;
+            padding: 12px;
+            min-width: 48px;
+            min-height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* ===== HERO ===== */
+        header {
+            text-align: center;
+            padding: 60px 20px 40px;
+            background: linear-gradient(180deg, #f0f6fa 0%, #ffffff 100%);
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: auto;
+            font-weight: 800;
+            font-size: 26px;
+            box-shadow: 0 4px 12px rgba(15, 76, 129, 0.2);
+        }
+
+        h1 {
+            font-size: clamp(2.4rem, 6vw, 3.8rem);
+            font-weight: 800;
+            margin-top: 20px;
+            color: var(--primary);
+            letter-spacing: -0.02em;
+        }
+
+        .subtitle {
+            font-size: 22px;
+            max-width: 700px;
+            margin: 15px auto 0;
+            color: var(--muted);
+            font-weight: 500;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        /* ===== SECTIONS & SERVICE CARDS ===== */
+        .section {
+            padding: 60px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 40px;
+            color: var(--primary);
+        }
+
+        .text {
+            max-width: 800px;
+            margin: auto;
+            text-align: center;
+            color: var(--muted);
+            font-size: 19px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .card {
+            background: white;
+            border: 2px solid var(--border);
+            border-radius: 16px;
+            padding: 30px 24px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.03);
+            transition: transform 0.2s ease, border-color 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .card:hover, .card:focus-within {
+            transform: translateY(-4px);
+            border-color: var(--primary);
+        }
+
+        .card h3 {
+            margin-bottom: 14px;
+        }
+
+        .card h3 a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 21px;
+        }
+
+        .card h3 a:hover, .card h3 a:focus {
+            text-decoration: underline;
+        }
+
+        .card p {
+            color: var(--muted);
+            font-size: 17px;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .btn {
+            display: inline-block;
+            width: 100%;
+            padding: 14px 24px;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 18px;
+            min-height: 48px; /* Accessible standard target size */
+            transition: background 0.2s;
+        }
+
+        .btn:hover, .btn:focus {
+            background: #083a66;
+            outline: 3px solid var(--accent);
+        }
+
+        /* ===== FOOTER STRUCTURAL FLOW ===== */
+        .footer-frame {
+            padding: 60px 20px;
+            text-align: center;
+            border-top: 2px solid var(--border);
+            margin-top: 60px;
+            background-color: #fafbfc;
+        }
+
+        .social-row {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-bottom: 30px;
+        }
+
+        .social-icon-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 52px;
+            height: 52px;
+            background: white;
+            border: 2px solid var(--border);
+            border-radius: 50%;
+            color: var(--primary);
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+
+        .social-icon-btn svg {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+        }
+
+        .social-icon-btn:hover, .social-icon-btn:focus {
+            color: white;
+            background: var(--primary);
+            border-color: var(--primary);
+            transform: scale(1.05);
+        }
+
+        .footer-links-row {
+            margin: 25px 0;
+        }
+
+        .footer-modal-trigger {
+            margin: 0 15px;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 700;
+            padding: 10px;
+            display: inline-block;
+        }
+
+        .footer-modal-trigger:hover {
+            text-decoration: underline;
+        }
+
+        /* ===== ACCESSIBLE MODALS ===== */
+        .modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.75);
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            z-index: 3000;
+        }
+
+        .modal-content {
+            background: white;
+            max-width: 650px;
+            width: 100%;
+            padding: 35px 30px;
+            border-radius: 16px;
+            position: relative;
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
+        }
+
+        .modal-content h2 {
+            margin-bottom: 16px;
+            color: var(--primary);
+            font-weight: 800;
+        }
+
+        .modal-content p {
+            margin-bottom: 14px;
+            color: var(--text);
+        }
+
+        .close {
+            position: absolute;
+            right: 20px;
+            top: 15px;
+            font-size: 36px;
+            font-weight: 700;
+            cursor: pointer;
+            color: var(--muted);
+            padding: 8px;
+        }
+
+        .close:hover {
+            color: var(--text);
+        }
+    </style>
 </head>
+
 <body>
 
-    <!-- Header Navigation -->
-    <header class="site-header">
-        <div class="header-container">
-            <a href="#" class="logo" aria-label="ShonaPay Home">ShonaPay</a>
-            
-            <button class="menu-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Open Navigation Menu">
-                <span class="hamburger"></span>
-            </button>
+<!-- TOP BAR -->
+<div class="topbar">
+    <a href="#home" class="brand-name">ShonaPay</a>
+    <button class="menu-btn" onclick="openMenu()" aria-label="Open navigation menu">☰</button>
+</div>
 
-            <nav id="primary-nav" class="nav-menu">
-                <ul class="nav-list">
-                    <li><a href="#hero" class="nav-link">Home</a></li>
-                    <li><a href="#services" class="nav-link">Our Services</a></li>
-                    <li><a href="#how-it-works" class="nav-link">How It Works</a></li>
-                    <li><a href="#legal" class="nav-link">Privacy & Terms</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+<!-- OVERLAY MENU -->
+<div id="menu" class="overlay">
+    <div class="close-btn" onclick="closeMenu()" role="button" aria-label="Close navigation menu">×</div>
 
-    <main>
-        <!-- Hero Section -->
-        <section id="hero" class="hero-section">
-            <div class="hero-content">
-                <h1>Connecting You to Vital Services, Instantly</h1>
-                <p>Empowering global citizens and the diaspora with immediate access to essential connectivity, mobile communication, and healthcare support solutions.</p>
-                <a href="#services" class="cta-button">Explore Services</a>
-            </div>
-        </section>
+    <div class="menu">
+        <a href="#home">Home</a>
+        <a href="#services">Our Services</a>
+        <a href="#about">About Us</a>
+        <a href="#mission">Our Mission</a>
+        <a href="#vision">Our Vision</a>
+        <a href="#why">Why Choose Us</a>
+    </div>
+</div>
 
-        <!-- Services Section -->
-        <section id="services" class="services-section">
-            <div class="section-container">
-                <h2 class="section-title">Our Essential Services</h2>
-                
-                <div class="services-grid">
-                    <!-- Service Card 1: Airalo -->
-                    <article class="service-card">
-                        <div class="card-icon">
-                            <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
-                        </div>
-                        <h3><a href="https://airalo.com" target="_blank" rel="noopener sponsored" class="provider-link">Explore eSIM Plans</a></h3>
-                        <p>Stay connected across Africa by purchasing a virtual eSIM to bypass physical SIM swaps and high network roaming charges.</p>
-                        <a href="https://airalo.com" target="_blank" rel="noopener sponsored" class="card-cta">Get eSIM Now</a>
-                    </article>
+<!-- HERO -->
+<header id="home">
+    <div class="logo">SP</div>
+    <h1>ShonaPay</h1>
+    <div class="subtitle">
+        Connecting People to Essential Digital Services Worldwide
+    </div>
+</header>
 
-                    <!-- Service Card 2: Ding -->
-                    <article class="service-card">
-                        <div class="card-icon">
-                            <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-                        </div>
-                        <h3><a href="https://ding.com" target="_blank" rel="noopener sponsored" class="provider-link">Airtime Top-Up</a></h3>
-                        <p>Instantly send mobile airtime credit and data bundles to your loved ones on any network, keeping families closer no matter the distance.</p>
-                        <a href="https://ding.com" target="_blank" rel="noopener sponsored" class="card-cta">Send Airtime Credit</a>
-                    </article>
+    <!-- ===== SERVICES ===== -->
+    <section class="section" id="services">
+        <h2 class="section-title">Our Services</h2>
 
-                    <!-- Service Card 3: 54 Healthcare -->
-                    <article class="service-card">
-                        <div class="card-icon">
-                            <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
-                        </div>
-                        <h3><a href="https://54healthcare.com" target="_blank" rel="noopener sponsored" class="provider-link">Telehealth Access</a></h3>
-                        <p>Secure global medical guidance and remote diagnostic care solutions for individuals requiring fast, dependable medical insight.</p>
-                        <a href="https://54healthcare.com" target="_blank" rel="noopener sponsored" class="card-cta">Access Medical Care</a>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <!-- Optimization Addon: How It Works Section -->
-        <section id="how-it-works" class="process-section">
-            <div class="section-container">
-                <h2 class="section-title">Getting Started Is Simple</h2>
-                <div class="process-steps">
-                    <div class="step">
-                        <div class="step-number">1</div>
-                        <h4>Select a Service</h4>
-                        <p>Choose between virtual data packages, instant phone credit, or remote digital clinic options.</p>
-                    </div>
-                    <div class="step">
-                        <div class="step-number">2</div>
-                        <h4>Redirect Securely</h4>
-                        <p>Our secure partnerships send you directly to vetted tier-one verification and provisioning pages.</p>
-                    </div>
-                    <div class="step">
-                        <div class="step-number">3</div>
-                        <h4>Enjoy Instant Access</h4>
-                        <p>Your data configurations, phone credits, or healthcare consultations activate right when you finish checkout.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Clean Legal + Privacy Structure -->
-        <section id="legal" class="legal-section">
-            <div class="section-container narrow-content">
-                <h2>Transparency & Disclosures</h2>
-                <div class="legal-grid">
-                    <div class="legal-block">
-                        <h3>Affiliate Disclosure</h3>
-                        <p>ShonaPay provides independent curation and referral links to international lifestyle, connectivity, and digital health utility brands. When you utilize our outbound service triggers to register plans or make purchases with platforms like Airalo, Ding, or 54 Healthcare, we may track a promotional referral allowance at absolutely no additional transaction markup to you.</p>
-                    </div>
-                    <div class="legal-block">
-                        <h3>Privacy Strategy</h3>
-                        <p>We believe in absolute security minimalism. ShonaPay does not prompt users for local user accounts, credit card fields, or local physical storage profiles. Your outbound activity aligns directly with browser cookies natively managed alongside target provider security rules. Local operations follow standard localized privacy guidelines.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer with Improved Social Media Icons -->
-    <footer class="site-footer">
-        <div class="footer-container">
-            <p>&copy; 2026 ShonaPay. All international rights reserved.</p>
-            
-            <div class="social-links" aria-label="Social Media Framework Links">
-                <!-- X (formerly Twitter) -->
-                <a href="https://x.com" target="_blank" rel="noopener" aria-label="Follow ShonaPay on X">
-                    <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        <div class="grid">
+            <!-- Service Card 1: Airalo Affiliate -->
+            <div class="card">
+                <h3>
+                    <a href="https://airalo.com" target="_blank" rel="noopener sponsored">🌍 Explore eSIM Plans</a>
+                </h3>
+                <p>
+                    Stay connected across Africa by purchasing a virtual eSIM to bypass physical SIM swaps and high network roaming charges.
+                </p>
+                <a class="btn" href="https://airalo.com" target="_blank" rel="noopener sponsored">
+                    Explore Plans
                 </a>
-                
-                <!-- LinkedIn -->
-                <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="Connect with ShonaPay on LinkedIn">
-                    <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-                </a>
+            </div>
 
-                <!-- Facebook -->
-                <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Follow ShonaPay on Facebook">
-                    <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            <!-- Service Card 2: Ding Affiliate -->
+            <div class="card">
+                <h3>
+                    <a href="https://ding.com" target="_blank" rel="noopener sponsored">📱 Send Airtime Now</a>
+                </h3>
+                <p>
+                    Instantly send airtime and mobile data to family and friends worldwide.
+                </p>
+                <a class="btn" href="https://ding.com" target="_blank" rel="noopener sponsored">
+                    Send Airtime
+                </a>
+            </div>
+
+            <!-- Service Card 3: 54 Healthcare Affiliate -->
+            <div class="card">
+                <h3>
+                    <a href="https://54healthcare.com" target="_blank" rel="noopener sponsored">🏥 Book Telehealth Consult</a>
+                </h3>
+                <p>
+                    Access licensed healthcare professionals online anytime, anywhere.
+                </p>
+                <a class="btn" href="https://54healthcare.com" target="_blank" rel="noopener sponsored">
+                    Book Consultation
                 </a>
             </div>
         </div>
-    </footer>
+    </section>
 
-```css
-/* Custom Design & High-Contrast Layout System Variables */
-:root {
-    --bg-primary: #ffffff;
-    --bg-secondary: #f4f6f9;
-    --text-main: #111827;
-    --text-muted: #374151;
-    --accent-color: #1e3a8a; /* Deep Indigo for distinct high readability */
-    --cta-color: #d97706;    /* Amber Tone for high-visibility buttons */
-    --cta-hover: #b45309;
-    --max-width: 1200px;
-    --font-stack: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    <!-- ===== ABOUT ===== -->
+    <section class="section" id="about">
+        <h2 class="section-title">About Us</h2>
+        <p class="text">
+            ShonaPay is a global digital access platform connecting users to essential services including
+            mobile connectivity, airtime transfers, and telehealth consultations through trusted partners.
+        </p>
+    </section>
+
+    <!-- ===== MISSION ===== -->
+    <section class="section" id="mission">
+        <h2 class="section-title">Mission</h2>
+        <p class="text">
+            To make essential digital services accessible, simple, and affordable for people everywhere,
+            especially across Africa and global communities.
+        </p>
+    </section>
+
+    <!-- ===== VISION ===== -->
+    <section class="section" id="vision">
+        <h2 class="section-title">Vision</h2>
+        <p class="text">
+            A fully connected world where geography is no longer a barrier to communication,
+            healthcare, or digital access.
+        </p>
+    </section>
+
+    <!-- ===== WHY US ===== -->
+    <section class="section" id="why">
+        <h2 class="section-title">Why Choose ShonaPay?</h2>
+
+        <div class="grid">
+            <div class="card">
+                <h3>⚡ Fast Access</h3>
+                <p>Instant access to digital services through trusted providers.</p>
+            </div>
+
+            <div class="card">
+                <h3>🌍 Global Reach</h3>
+                <p>Connect across Africa and worldwide without restrictions.</p>
+            </div>
+
+            <div class="card">
+                <h3>🔒 Secure Network</h3>
+                <p>Services are handled through verified and secure partners.</p>
+            </div>
+
+            <div class="card">
+                <h3>📱 Mobile Friendly</h3>
+                <p>Optimized for smartphones and low-bandwidth environments.</p>
+            </div>
+        </div>
+    </section>
+
+</div> <!-- END CONTAINER -->
+
+<!-- ===== FOOTER WITH SVG ICONS ===== -->
+<footer class="footer-frame">
+
+    <div class="social-row">
+        <!-- Email Link -->
+        <a href="mailto:support@shonapay.com" class="social-icon-btn" aria-label="Email Support">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+        </a>
+
+        <!-- Facebook Link -->
+        <a href="https://facebook.com" target="_blank" rel="noopener" class="social-icon-btn" aria-label="Visit Facebook Page">
+            <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        </a>
+
+        <!-- LinkedIn Link -->
+        <a href="https://linkedin.com" target="_blank" rel="noopener" class="social-icon-btn" aria-label="Visit LinkedIn Profile">
+            <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+
+        <!-- X (Formerly Twitter) Link -->
+        <a href="https://x.com" target="_blank" rel="noopener" class="social-icon-btn" aria-label="Visit X Profile">
+            <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+    </div>
+
+    <p style="color:var(--muted); font-size:15px; font-weight: 600;">
+        © 2026 ShonaPay. All rights reserved.
+    </p>
+
+    <p style="color:var(--muted); font-size:14px; max-width:700px; margin:12px auto 20px;">
+        ShonaPay connects users to third-party digital service providers. Availability, pricing,
+        and service delivery are managed exclusively by our affiliate partners.
+    </p>
+
+    <div class="footer-links-row">
+        <a href="#" onclick="openPrivacy(event)" class="footer-modal-trigger">Privacy Policy</a>
+        <a href="#" onclick="openLegal(event)" class="footer-modal-trigger">Legal Terms</a>
+    </div>
+</footer>
+
+<!-- ===== PRIVACY MODAL ===== -->
+<div id="privacy" class="modal" onclick="closeModalOnOutsideClick(event)">
+    <div class="modal-content">
+        <span class="close" onclick="closePrivacy()">×</span>
+        <h2>Privacy Policy</h2>
+        <p>
+            We only collect minimal data required to operate the platform, such as explicit language preferences
+            and basic, non-identifying interaction analytics. We do not prompt, process, or store payment instruments or sensitive personal data profiles locally.
+        </p>
+        <p>
+            Outbound service redirections are securely validated through cookie preferences native to our premium destination providers.
+        </p>
+    </div>
+</div>
+
+<!-- ===== LEGAL MODAL ===== -->
+<div id="legal" class="modal" onclick="closeModalOnOutsideClick(event)">
+    <div class="modal-content">
+        <span class="close" onclick="closeLegal()">×</span>
+        <h2>Legal Terms</h2>
+        <p>
+            ShonaPay operates purely as a curated affiliate landing interface connecting users to external providers.
+            We hold no directly assigned liability for service provisioning timelines, network cell availability, or localized price updates issued by partners.
+        </p>
+        <p>
+            By triggering links on this portal, you acknowledge that transaction terms align with the destination provider’s local legal framework.
+        </p>
+    </div>
+</div>
+
+<!-- ===== JAVASCRIPT MECHANICS ===== -->
+<script>
+function openMenu() {
+    document.getElementById("menu").classList.add("active");
+    document.body.style.overflow = "hidden"; /* Prevent background scrolling when menu open */
 }
 
-/* Base Accessibility Setup */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+function closeMenu() {
+    document.getElementById("menu").classList.remove("active");
+    document.body.style.overflow = "";
 }
 
-html {
-    scroll-behavior: smooth;
-    font-family: var(--font-stack);
-    font-size: 18px; /* Slightly scaled base font size for age-inclusive reading */
-    color: var(--text-main);
-    background-color: var(--bg-primary);
-    line-height: 1.6;
+// Global programmatic scroll + immediate menu close bind
+document.querySelectorAll('.menu a').forEach(link => {
+    link.addEventListener('click', function(e) {
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        
+        if (targetElement) {
+            e.preventDefault();
+            closeMenu();
+            
+            // Allow menu closing animation to proceed smoothly before scrolling
+            setTimeout(() => {
+                targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
+            }, 150);
+        }
+    });
+});
+
+function openPrivacy(e) {
+    e.preventDefault();
+    document.getElementById("privacy").style.display = "flex";
 }
 
-body {
-    min-height: 100vh;
+function closePrivacy() {
+    document.getElementById("privacy").style.display = "none";
 }
 
-/* Header & Hamburger Overlays */
-.site-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: var(--bg-primary);
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    z-index: 1000;
+// Corrected link conflict by naming opening functions clearly
+function openLegal(e) {
+    e.preventDefault();
+    document.getElementById("legal").style.display = "flex";
 }
 
-.header-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: var(--max-width);
-    margin: 0 auto;
-    padding: 15px 24px;
+function closeLegal() {
+    document.getElementById("legal").style.display = "none";
 }
 
-.logo {
-    font-size: 1.5rem;
-    font-weight: 800;
-    color: var(--accent-color);
-    text-decoration: none;
-    letter-spacing: -0.025em;
-}
-
-/* Accessible Controls */
-.menu-toggle {
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 12px; /* Large safe interactive target */
-    display: block;
-    z-index: 1100;
-}
-
-.hamburger {
-    display: block;
-    width: 28px;
-    height: 3px;
-    background-color: var(--text-main);
-    position: relative;
-    transition: background 0.2s ease;
-}
-
-.hamburger::before, .hamburger::after {
-    content: '';
-    position: absolute;
-    width: 28px;
-    height: 3px;
-    background-color: var(--text-main);
-    left: 0;
-    transition: transform 0.2s ease;
-}
-
-.hamburger::before { top: -8px; }
-.hamburger::after { bottom: -8px; }
-
-/* Menu Toggle Transformations */
-.menu-toggle[aria-expanded="true"] .hamburger {
-    background: transparent;
-}
-.menu-toggle[aria-expanded="true"] .hamburger::before {
-    transform: translateY(8px) rotate(45deg);
-}
-.menu-toggle[aria-expanded="true"] .hamburger::after {
-    transform: translateY(-8px) rotate(-45deg);
-}
-
-/* Mobile Nav-Overlay Framework */
-.nav-menu {
-    position: fixed;
-    top: 0;
-    right: -100%;
-    width: 100%;
-    height: 100vh;
-    background-color: var(--bg-primary);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.nav-menu.is-active {
-    right: 0;
-}
-
-.nav-list {
-    list-style: none;
-    text-align: center;
-}
-
-.nav-list li {
-    margin: 24px 0;
-}
-
-.nav-link {
-    font-size: 1.4rem;
-    font-weight: 600;
-    color: var(--text-main);
-    text-decoration: none;
-    padding: 12px 24px;
-    display: inline-block;
-}
-
-/* Main Hero Layout */
-.hero-section {
-    padding: 160px 24px 80px 24px;
-    background: linear-gradient(135deg, #f0f4ff 0%, #e0e7ff 100%);
-    text-align: center;
-}
-
-.hero-content {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.hero-section h1 {
-    font-size: 2.5rem;
-    font-weight: 800;
-    color: var(--accent-color);
-    line-height: 1.2;
-    margin-bottom: 20px;
-}
-
-.hero-section p {
-    font-size: 1.2rem;
-    color: var(--text-muted);
-    margin-bottom: 36px;
-}
-
-/* Accessible Universal Buttons */
-.cta-button {
-    display: inline-block;
-    background-color: var(--cta-color);
-    color: #ffffff;
-    font-weight: 700;
-    text-decoration: none;
-    padding: 16px 36px;
-    border-radius: 8px;
-    font-size: 1.1rem;
-    min-height: 48px;
-    transition: background-color 0.2s ease;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-}
-
-.cta-button:hover, .cta-button:focus {
-    background-color: var(--cta-hover);
-    outline: 3px solid var(--text-main);
-}
-
-/* Center Service Cards Layout Grid */
-.services-section {
-    padding: 80px 24px;
-    background-color: var(--bg-secondary);
-}
-
-.section-container {
-    max-width: var(--max-width);
-    margin: 0 auto;
-}
-
-.section-title {
-    text-align: center;
-    font-size: 2rem;
-    font-weight: 800;
-    margin-bottom: 48px;
-    position: relative;
-}
-
-.services-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 32px;
-}
-
-.service-card {
-    background-color: var(--bg-primary);
-    padding: 40px 30px;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border: 2px solid transparent;
-}
-
-.service-card:hover {
-    border-color: var(--accent-color);
-}
-
-.card-icon {
-    color: var(--accent-color);
-    margin-bottom: 20px;
-}
-
-.provider-link {
-    font-size: 1.35rem;
-    color: var(--accent-color);
-    text-decoration: underline;
-    font-weight: 700;
-    display: inline-block;
-    margin-bottom: 16px;
-}
-
-.service-card p {
-    font-size: 1.05rem;
-    color: var(--text-muted);
-    margin-bottom: 28px;
-    max-width: 450px;
-}
-
-.card-cta {
-    margin-top: auto;
-    display: inline-block;
-    color: var(--accent-color);
-    font-weight: 700;
-    text-decoration: none;
-    font-size: 1.1rem;
-    padding: 10px 20px;
-    border: 2px solid var(--accent-color);
-    border-radius: 6px;
-    transition: all 0.2s;
-}
-
-.card-cta:hover {
-    background-color: var(--accent-color);
-    color: #ffffff;
-}
-
-/* How It Works Layout Framework */
-.process-section {
-    padding: 80px 24px;
-    background-color: var(--bg-primary);
-}
-
-.process-steps {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-    margin-top: 20px;
-}
-
-.step {
-    text-align: center;
-    padding: 20px;
-}
-
-.step-number {
-    width: 50px;
-    height: 50px;
-    background-color: var(--accent-color);
-    color: #ffffff;
-    font-weight: 800;
-    font-size: 1.3rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    margin: 0 auto 20px auto;
-}
-
-.step h4 {
-    font-size: 1.25rem;
-    margin-bottom: 12px;
-}
-
-/* Legal Disclosures Frame Styling */
-.legal-section {
-    padding: 60px 24px;
-    background-color: var(--bg-secondary);
-    border-top: 1px solid #e5e7eb;
-}
-
-.narrow-content {
-    max-width: 900px;
-}
-
-.legal-section h2 {
-    font-size: 1.6rem;
-    margin-bottom: 32px;
-    text-align: center;
-}
-
-.legal-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
-}
-
-.legal-block h3 {
-    font-size: 1.2rem;
-    margin-bottom: 10px;
-    color: var(--accent-color);
-}
-
-.legal-block p {
-    font-size: 0.95rem;
-    color: var(--text-muted);
-}
-
-/* Structural Footers and SVGs */
-.site-footer {
-    background-color: var(--text-main);
-    color: #ffffff;
-    padding: 40px 24px;
-    text-align: center;
-}
-
-.footer-container {
-    max-width: var(--max-width);
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 24px;
-}
-
-.social-links {
-    display: flex;
-    gap: 24px;
-}
-
-.social-links a {
-    color: #ffffff;
-    transition: color 0.2s ease;
-    display: inline-block;
-    padding: 8px; /* Safe target touch area */
-}
-
-.social-links a:hover {
-    color: var(--cta-color);
-}
-
-/* Media Queries for Desktop and Wide-Laptop Responsive System Scaling */
-@media (min-width: 768px) {
-    .services-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-    
-    .process-steps {
-        flex-direction: row;
-        justify-content: space-between;
-    }
-    
-    .step {
-        flex: 1;
-    }
-
-    .legal-grid {
-        flex-direction: row;
-    }
-
-    .legal-block {
-        flex: 1;
+function closeModalOnOutsideClick(e) {
+    if (e.target.classList.contains("modal")) {
+        e.target.style.display = "none";
     }
 }
+</script>
 
-@media (min-width: 1024px) {
-    .menu-toggle {
-        display: none; /* Hide hamburger on laptops and higher views */
-    }
-
-    .nav-menu {
-        position: static;
-        width: auto;
-        height: auto;
-        background: none;
-    }
-
-    .nav-list {
-        display: flex;
-        gap: 8px;
-    }
-
-    .nav-list li {
-        margin: 0;
-    }
-
-    .nav-link {
-        font-size: 1rem;
-        padding: 8px 16px;
-    }
-
-    .nav-link:hover {
-        color: var(--accent-color);
-        text-decoration: underline;
-    }
-
-    .hero-section h1 {
-        font-size: 3.4rem;
-    }
-}
-
+</body>
+</html>
