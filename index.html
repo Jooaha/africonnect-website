@@ -1,622 +1,515 @@
-
+New version
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ShonaPay | Your digital access to the world</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ShonaPay | Digital Access Services</title>
 
-    <!-- Performance Optimization: Preconnect to Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <style>
-        :root {
-            --primary: #0284c7;
-            --dark: #0f172a;
-            --light: #f8fafc;
-            --gray: #64748b;
-        }
-        
-        /* Reset and Base Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<!-- Font -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 
-        body {
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
-            background-color: var(--light);
-            color: var(--dark);
-            min-height: 100vh;
-            line-height: 1.6;
-            
-        }
+<style>
+:root{
+    --primary:#0F4C81;
+    --secondary:#00A8A8;
+    --accent:#F4A261;
+    --bg:#ffffff;
+    --text:#1F2937;
+    --muted:#6B7280;
+    --border:#E5E7EB;
+}
 
-        /* Accessibility: Prevent layout shift during typing */
-        #typing {
-            color: var(--primary);
-            border-right: 2px solid var(--primary);
-            padding-right: 2px;
-        }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-        /* Layout Component Styles */
-        .top-bar {
-            background: #fff;
-            padding: 0.75rem 1.5rem;
-            border-bottom: 1px solid #e2e8f0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+body{
+    font-family:Inter, system-ui, sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.7;
+    font-size:18px;
+}
 
+/* ===== TOP BAR ===== */
+.topbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:12px 16px;
+    border-bottom:1px solid var(--border);
+    position:sticky;
+    top:0;
+    background:white;
+    z-index:999;
+}
 
 .menu-btn{
+    font-size:28px;
     background:none;
     border:none;
-    font-size:2rem;
     cursor:pointer;
-    color:var(--dark);
+    color:var(--text);
 }
 
-.lang-select{
-    padding:0.4rem 0.6rem;
-    border:1px solid #cbd5e1;
-    border-radius:6px;
-    cursor:pointer;
+.lang-note{
+    font-size:14px;
+    color:var(--muted);
 }
 
-header{
-    background:white;
-    padding:3rem 1rem;
-    text-align:center;
-    border-bottom:1px solid #e2e8f0;
-}
-.logo-badge {
-    width: 70px;
-    height: 70px;
-    margin: 0 auto 1rem;
-    border-radius: 50%;
-    background: var(--primary);
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 800;
-    font-size: 1.5rem;
-}
-
-header h1 {
-    margin: 0;
-    font-size: clamp(2.5rem, 8vw, 4.5rem);
-    font-weight: 800;
-    letter-spacing: -1px;
-}
-header h1{
-    margin:0;
-    font-size:clamp(2.5rem,8vw,4.5rem);
-    font-weight:800;
-    letter-spacing:-1px;
-}
-
-.subtitle{
-    color:var(--gray);
-    font-size:1.25rem;
-}
-
-.container{
-    max-width:1100px;
-    margin:3rem auto;
-    padding:0 1rem;
-}
-
-.services-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-    gap:2rem;
-}
-
-.card{
-    background:white;
-    padding:2rem;
-    border-radius:12px;
-    border:1px solid #e2e8f0;
-    box-shadow:0 4px 6px rgba(0,0,0,.05);
-    display:flex;
-    flex-direction:column;
-}
-
-.card h2{
-    color:var(--primary);
-    margin-top:0;
-}
-
-.card p{
-    flex-grow:1;
-}
-
-.btn{
-    display:inline-block;
-    background:var(--primary);
-    color:white;
-    text-decoration:none;
-    padding:.75rem 1.5rem;
-    border-radius:6px;
-    font-weight:600;
-    text-align:center;
-    margin-top:1rem;
-}
-
-.btn:hover{
-    background:#0369a1;
-}
-
-footer{
-    margin-top:4rem;
-    background:white;
-    border-top:1px solid #e2e8f0;
-    padding:3rem 1rem;
-    text-align:center;
-}
-
-.social-links{
-    margin-bottom:1.5rem;
-}
-
-.social-icon{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    width:44px;
-    height:44px;
-    margin:0 .5rem;
-    color:var(--gray);
-    transition:.2s;
-}
-
-.social-icon:hover{
-    color:var(--primary);
-}
-
-.footer-links{
-    margin:1rem 0;
-}
-
-.footer-links a{
-    margin:0 1rem;
-    color:var(--gray);
-    text-decoration:none;
-}
-
-.footer-links a:hover{
-    text-decoration:underline;
-}
-
-.disclaimer{
-    max-width:700px;
-    margin:1rem auto;
-    font-size:.8rem;
-}
-
-.ai-chat-widget{
-    position:fixed;
-    bottom:20px;
-    right:20px;
-    background:var(--dark);
-    color:white;
-    padding:.8rem 1.2rem;
-    border-radius:50px;
-    cursor:pointer;
-    font-weight:600;
-    box-shadow:0 4px 12px rgba(0,0,0,.15);
-}
-
-.ai-chat-widget:hover{
-    transform:scale(1.05);
-}
-
-/* Overlay Menu */
-
+/* ===== SIDE MENU ===== */
 .overlay{
     position:fixed;
     top:0;
     left:-100%;
     width:100%;
     height:100%;
-    background:rgba(15,23,42,.97);
-    z-index:1000;
-    transition:left .35s ease;
-    overflow-y:auto;
+    background:rgba(15,23,42,0.98);
+    transition:0.3s;
+    z-index:2000;
+    padding:40px 20px;
 }
 
 .overlay.active{
     left:0;
 }
 
-.overlay-content{
-    max-width:900px;
-    margin:60px auto;
-    padding:2rem;
-    color:white;
+.menu{
+    max-width:500px;
+    margin:auto;
+    text-align:center;
+    margin-top:60px;
 }
 
-.overlay-content h2{
-    text-align:center;
-    font-size:2.2rem;
+.menu a{
+    display:block;
+    color:white;
+    font-size:22px;
+    padding:14px;
+    text-decoration:none;
+    border-bottom:1px solid rgba(255,255,255,0.1);
+}
+
+.menu a:hover{
+    color:var(--accent);
 }
 
 .close-btn{
-    float:right;
-    font-size:2rem;
+    position:absolute;
+    top:20px;
+    right:20px;
+    font-size:30px;
+    color:white;
     cursor:pointer;
 }
 
-.mv-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:1.5rem;
-    margin-top:2rem;
+/* ===== HERO ===== */
+header{
+    text-align:center;
+    padding:50px 20px 30px;
 }
 
-.mv-card{
-    background:rgba(255,255,255,.08);
-    padding:1.5rem;
-    border-radius:10px;
-    border-left:4px solid var(--primary);
+.logo{
+    width:70px;
+    height:70px;
+    background:var(--primary);
+    color:white;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin:auto;
+    font-weight:800;
+    font-size:22px;
 }
 
-.mv-card h3{
-    margin-top:0;
+h1{
+    font-size:clamp(2.2rem,5vw,3.5rem);
+    margin-top:15px;
 }
 
-/* Modal */
-
-.modal{
-    display:none;
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,.75);
-    z-index:2000;
+.subtitle{
+    font-size:20px;
+    color:var(--muted);
+    margin-top:10px;
 }
 
-.modal-content{
-    background:white;
-    max-width:850px;
-    margin:5% auto;
-    padding:2rem;
-    border-radius:12px;
-    max-height:80vh;
-    overflow-y:auto;
+.tagline{
+    margin-top:8px;
+    font-weight:600;
+    color:var(--primary);
 }
 
-.modal-content h2{
-    margin-top:0;
+.container{
+    max-width:1100px;
+    margin:auto;
+    padding:20px;
 }
-        .why-us {
-    margin-top: 4rem;
-    text-align: center;
-}
-
-.why-us h2 {
-    margin-bottom: 2rem;
-}
-
-.why-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 1.5rem;
-}
-
-.why-card {
-    background: white;
-    padding: 1.5rem;
-    border-radius: 12px;
-    border: 1px solid #e2e8f0;
-}
-
 </style>
 </head>
 
 <body>
 
-<div class="top-bar">
+<!-- TOP BAR -->
+<div class="topbar">
     <button class="menu-btn" onclick="openMenu()">☰</button>
-
-    <select class="lang-select">
-        <option>🌐 English</option>
-        <option>Français (French)</option>
-        <option>العربية (Arabic)</option>
-        <option>Kiswahili (Swahili)</option>
-    </select>
+    <div class="lang-note">Use browser translation for languages</div>
 </div>
 
-<header>
-    <div class="logo-badge">SP</div>
+<!-- OVERLAY MENU -->
+<div id="menu" class="overlay">
+    <div class="close-btn" onclick="closeMenu()">×</div>
+
+    <div class="menu">
+        <a href="#home" onclick="closeMenu()">Home</a>
+        <a href="#about" onclick="closeMenu()">About Us</a>
+        <a href="#mission" onclick="closeMenu()">Mission</a>
+        <a href="#vision" onclick="closeMenu()">Vision</a>
+        <a href="#why" onclick="closeMenu()">Why Us</a>
+        <a href="#languages" onclick="closeMenu()">Languages</a>
+    </div>
+</div>
+
+<!-- HERO -->
+<header id="home">
+    <div class="logo">SP</div>
+
     <h1>ShonaPay</h1>
-    <p class="subtitle">Your digital access to the world.</p>
+
+    <div class="subtitle">
+        Connecting People to Essential Digital Services Worldwide
+    </div>
+
+    <div class="tagline">
+        eSIM • Airtime Top-Up • Telehealth Access
+    </div>
 </header>
-<section class="why-us">
-    <h2>Why Choose ShonaPay?</h2>
-
-    <div class="why-grid">
-        <div class="why-card">
-            <h3>⚡ Fast Activation</h3>
-            <p>Access digital services instantly through trusted partners.</p>
-        </div>
-
-        <div class="why-card">
-            <h3>🌍 Cross-Border Access</h3>
-            <p>Stay connected across Africa and beyond.</p>
-        </div>
-
-        <div class="why-card">
-            <h3>🔒 Secure Connections</h3>
-            <p>Your requests are processed through trusted provider networks.</p>
-        </div>
-
-        <div class="why-card">
-            <h3>📱 Mobile First</h3>
-            <p>Optimized for smartphones and low-bandwidth environments.</p>
-        </div>
-    </div>
-</section>
-
-<!-- ABOUT OVERLAY -->
-
-
-<div id="aboutOverlay" class="overlay">
-    <div class="overlay-content">
-
-        <span class="close-btn" onclick="closeMenu()">&times;</span>
-        
-<div class="mv-grid">
-    <div class="mv-card">
-        <h3>About Us</h3>
-        <p>
-            ShonaPay connects citizens, enterprises, and expats to trusted digital services, enabling seamless access to mobile connectivity, healthcare, and communication solutions across borders.
-        </p>
-     </div>
-
-    <div class="mv-card">
-        <h3>Mission</h3>
-        <p>
-            To make digital connectivity, communication, and healthcare services accessible to every African, anywhere in the world.
-        </p>
-            </div>
-
-    <div class="mv-card">
-        <h3>Vision</h3>
-        <p>
-            Digitally connected Africa where everyone can access essential services without geographic barriers.
-                </p>
-            </div>
-
-        </div>
-    </div>
-</div>
 
 <div class="container">
 
-    <main class="services-grid">
+<!-- ===== SERVICES ===== -->
+<section class="section" id="services">
+    <h2 class="section-title">Our Services</h2>
 
-        <section class="card">
-        
+    <div class="grid">
+
+        <div class="card">
+            <h3>🌍 Explore eSIM Plans</h3>
             <p>
-                Stay connected across Africa by purchasing a virtual eSIM to bypass physical SIM swaps and high network roaming charges.
+                Stay connected across borders with flexible and affordable eSIM data plans.
+                No physical SIM required.
             </p>
-            <a href="https://www.airalo.com/"
-   target="_blank"
-   rel="noopener"
-   class="btn">
-   Explore eSIM Plans</a>
-        </section>
+            <a class="btn" href="https://www.airalo.com/" target="_blank" rel="noopener">
+                Explore Plans
+            </a>
+        </div>
 
-        <section class="card">
-            
+        <div class="card">
+            <h3>📱 Send Airtime Now</h3>
             <p>
-                Send airtime and data to family and friends in seconds across major African mobile networks.
+                Instantly send airtime and mobile data to family and friends worldwide.
             </p>
-            <a href="https://www.ding.com/"
-   target="_blank"
-   rel="noopener"
-   class="btn">
-   Send Airtime Now
-</a>
-        </section>
+            <a class="btn" href="https://www.ding.com/" target="_blank" rel="noopener">
+                Send Airtime
+            </a>
+        </div>
 
-        <section class="card">
-            
+        <div class="card">
+            <h3>🏥 Book Telehealth Consult</h3>
             <p>
-                Book secure online consultations with licensed healthcare professionals from anywhere in the world.
+                Access licensed healthcare professionals online anytime, anywhere.
             </p>
-            <a href="https://www.54healthcare.com/"
-   target="_blank"
-   rel="noopener"
-   class="btn">
-   Book a Telehealth Consult
-</a>
-        </section>
+            <a class="btn" href="https://www.54healthcare.com/" target="_blank" rel="noopener">
+                Book Consultation
+            </a>
+        </div>
 
-    </main>
-    
-</div>
+    </div>
+</section>
 
-<div class="ai-chat-widget"
-onclick="alert('Our AI assistant setup is initialization... Stay tuned!')">
-💬 Chat with AI Assistant
-</div>
+<!-- ===== ABOUT ===== -->
+<section class="section" id="about">
+    <h2 class="section-title">About Us</h2>
+    <p class="text">
+        ShonaPay is a global digital access platform connecting users to essential services including
+        mobile connectivity, airtime transfers, and telehealth consultations through trusted partners.
+    </p>
+</section>
 
-<footer>
+<!-- ===== MISSION ===== -->
+<section class="section" id="mission">
+    <h2 class="section-title">Mission</h2>
+    <p class="text">
+        To make essential digital services accessible, simple, and affordable for people everywhere,
+        especially across Africa and global communities.
+    </p>
+</section>
 
-<div class="social-links">
+<!-- ===== VISION ===== -->
+<section class="section" id="vision">
+    <h2 class="section-title">Vision</h2>
+    <p class="text">
+        A fully connected world where geography is no longer a barrier to communication,
+        healthcare, or digital access.
+    </p>
+</section>
 
-<a href="mailto:support@shonapay.com" class="social-icon">
-<svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-<path d="M2 5h20v14H2V5zm10 7L4 7v10h16V7l-8 5z"/>
-</svg>
-</a>
+<!-- ===== WHY US ===== -->
+<section class="section" id="why">
+    <h2 class="section-title">Why Choose ShonaPay?</h2>
 
-<a href="#" class="social-icon">
-<svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-<path d="M22 12a10 10 0 10-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.51 1.49-3.9 3.78-3.9 1.1 0 2.25.2 2.25.2v2.46h-1.27c-1.25 0-1.64.77-1.64 1.56V12h2.79l-.45 2.89h-2.34v6.99A10 10 0 0022 12z"/>
-</svg>
-</a>
+    <div class="grid">
 
-<a href="#" class="social-icon">
-<svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-<path d="M20.52 3.48A11.8 11.8 0 0012.02 0C5.4 0 0 5.38 0 12c0 2.1.55 4.16 1.6 5.98L0 24l6.18-1.62A12 12 0 0012.02 24C18.64 24 24 18.62 24 12c0-3.2-1.25-6.2-3.48-8.52z"/>
-</svg>
-</a>
+        <div class="card">
+            <h3>⚡ Fast Access</h3>
+            <p>Instant access to digital services through trusted providers.</p>
+        </div>
 
-<a href="#" class="social-icon">
-<svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-<path d="M18.9 2H22l-6.8 7.8L23 22h-6.2l-4.9-6.4L6.4 22H3.3l7.2-8.2L1 2h6.4l4.4 5.9L18.9 2z"/>
-</svg>
-</a>
+        <div class="card">
+            <h3>🌍 Global Reach</h3>
+            <p>Connect across Africa and worldwide without restrictions.</p>
+        </div>
 
-</div>
+        <div class="card">
+            <h3>🔒 Secure Network</h3>
+            <p>Services are handled through verified and secure partners.</p>
+        </div>
 
-<div class="footer-links">
-    <a href="#" onclick="openPrivacy()">Privacy Policy</a>
-    <a href="#" onclick="openLegal()">Legal Terms & Conditions</a>
-</div>
+        <div class="card">
+            <h3>📱 Mobile Friendly</h3>
+            <p>Optimized for smartphones and low-bandwidth environments.</p>
+        </div>
 
-<p>&copy; 2026 ShonaPay. All rights reserved.</p>
+    </div>
+</section>
+
+<!-- ===== LANGUAGES ===== -->
+<section class="section" id="languages">
+    <h2 class="section-title">Languages</h2>
+
+    <p class="text">
+        ShonaPay is built in English. For Arabic, Swahili, French, Portuguese,
+        Hausa, Amharic, Yoruba, Somali, Zulu, and other languages,
+        please use your browser’s built-in translation feature.
+    </p>
+</section>
+
+<style>
+.section{
+    padding:60px 20px;
+}
+
+.section-title{
+    text-align:center;
+    font-size:2rem;
+    margin-bottom:30px;
+    color:var(--primary);
+}
+
+.text{
+    max-width:800px;
+    margin:auto;
+    text-align:center;
+    color:var(--muted);
+    font-size:18px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:20px;
+    max-width:1100px;
+    margin:auto;
+}
+
+.card{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:14px;
+    padding:22px;
+    box-shadow:0 6px 18px rgba(0,0,0,0.05);
+    transition:0.2s;
+}
+
+.card:hover{
+    transform:translateY(-3px);
+}
+
+.card h3{
+    margin-bottom:10px;
+    color:var(--text);
+}
+
+.btn{
+    display:inline-block;
+    margin-top:14px;
+    padding:12px 16px;
+    background:var(--primary);
+    color:white;
+    text-decoration:none;
+    border-radius:10px;
+    font-weight:600;
+    text-align:center;
+}
+
+.btn:hover{
+    background:#083a66;
+}
+</style>
 
 
-<p class="disclaimer">
-Disclaimer: We securely partner with licensed telecom operators and clinical
-healthcare platforms. Payments and services are fulfilled safely on our partner
-infrastructures.
-</p>
+<!-- ===== FOOTER ===== -->
+<footer style="padding:60px 20px; text-align:center; border-top:1px solid var(--border); margin-top:40px;">
+
+    <div style="margin-bottom:20px;">
+        <a href="mailto:support@shonapay.com" style="margin:0 10px; color:var(--primary); font-size:22px;">✉</a>
+
+        <a href="#" style="margin:0 10px; color:var(--primary); font-size:22px;">📘</a>
+
+        <a href="#" style="margin:0 10px; color:var(--primary); font-size:22px;">💬</a>
+
+        <a href="#" style="margin:0 10px; color:var(--primary); font-size:22px;">𝕏</a>
+    </div>
+
+    <p style="color:var(--muted); font-size:14px;">
+        © 2026 ShonaPay. All rights reserved.
+    </p>
+
+    <p style="color:var(--muted); font-size:13px; max-width:700px; margin:10px auto;">
+        ShonaPay connects users to third-party digital service providers. Availability, pricing,
+        and service delivery are managed by our partners.
+    </p>
+
+    <div style="margin-top:20px;">
+        <a href="#" onclick="openPrivacy()" style="margin:0 10px; color:var(--primary); text-decoration:none;">Privacy Policy</a>
+        <a href="#" onclick="openLegal()" style="margin:0 10px; color:var(--primary); text-decoration:none;">Legal Terms</a>
+    </div>
 
 </footer>
 
-<!-- PRIVACY POLICY -->
+<!-- ===== PRIVACY MODAL ===== -->
+<div id="privacy" class="modal">
+    <div class="modal-content">
 
-<div id="privacyModal" class="modal">
-<div class="modal-content">
+        <span class="close" onclick="closePrivacy()">×</span>
 
-<span class="close-btn" onclick="closePrivacy()">&times;</span>
+        <h2>Privacy Policy</h2>
 
-<h2>Privacy Policy</h2>
+        <p>
+            We only collect minimal data required to operate the platform such as language preferences
+            and basic interaction analytics. We do not store payment or sensitive personal data.
+        </p>
 
-<p><strong>Last Updated:</strong> June 19, 2026</p>
+        <p>
+            Service requests are securely processed through third-party providers.
+        </p>
 
-<p>
-At ShonaPay, we prioritize your security and are fully dedicated to
-protecting the privacy of your personal interactions. Because our portal acts
-as a clean digital bridge connecting you to fulfillment providers, we do not
-store your private financial transactions, bank accounts, or carrier billing
-passwords on our servers.
-</p>
-
-<h3>1. Information We Collect</h3>
-
-<p>
-To provide a highly responsive user experience, we only record core technical
-interactions, including language preference configurations and link engagement
-statistics. If you engage with our embedded interactive AI Assistant,
-conversations are temporarily cached anonymously to deliver answers to your
-technical product questions.
-</p>
-
-<h3>2. External Data Distribution</h3>
-
-<p>
-When selecting utility connections (such as regional eSIM packages or immediate
-airtime recharges), your specific service request details are handled via fully
-protected, industry-standard cryptographic channels by the licensed downstream
-network operator responsible for running that service.
-</p>
-
-<h3>3. Cookies and Telemetry</h3>
-
-<p>
-We use minor local storage flags to preserve your preferred language selections
-(such as French, Swahili, or Arabic) so you do not have to reset them during
-future site visits.
-</p>
-
-</div>
+    </div>
 </div>
 
-<!-- LEGAL -->
+<!-- ===== LEGAL MODAL ===== -->
+<div id="legal" class="modal">
+    <div class="modal-content">
 
-<div id="legalModal" class="modal">
-<div class="modal-content">
+        <span class="close" onclick="closeLegal()">×</span>
 
-<span class="close-btn" onclick="closeLegal()">&times;</span>
+        <h2>Legal Terms</h2>
 
-<h2>Legal Terms & Conditions</h2>
+        <p>
+            ShonaPay acts as a digital access platform connecting users to external service providers.
+            We are not responsible for service delivery, network availability, or provider pricing changes.
+        </p>
 
-<p><strong>Last Updated:</strong> June 19, 2026</p>
+        <p>
+            Users agree not to misuse the platform or attempt unauthorized access.
+        </p>
 
-<h3>1. Operational Capacity</h3>
-
-<p>
-ShonaPay maintains digital portal routing structures that connect global
-consumers seamlessly to third-party international eSIM delivery
-infrastructures, multi-carrier communication hubs, and remote telehealth access
-links. We do not personally manage local physical mobile masts, sell hardware
-directly, or operate local brick-and-mortar medical clinics.
-</p>
-
-<h3>2. Execution of Services</h3>
-
-<p>
-All network connection speeds, delivery timelines, local operator taxes, and
-mobile data coverage guarantees are under the sole operational ownership of the
-third-party infrastructure network handling your order. ShonaPay is not
-responsible or legally liable for unexpected supplier network breakdowns or
-pricing shifts carried out by regional networks.
-</p>
-
-<h3>3. Proper System Engagement</h3>
-
-<p>
-You agree not to bypass our interface or use our portal to generate unsolicited
-message distribution loops or target automated systems maliciously. We reserve
-the absolute right to limit site parameters to protect access stability for all
-visitors.
-</p>
-
-</div>
+    </div>
 </div>
 
+<!-- ===== STYLES FOR MODALS ===== -->
+<style>
+.modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.7);
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+    z-index:3000;
+}
+
+.modal-content{
+    background:white;
+    max-width:700px;
+    width:100%;
+    padding:25px;
+    border-radius:12px;
+    position:relative;
+}
+
+.close{
+    position:absolute;
+    right:15px;
+    top:10px;
+    font-size:28px;
+    cursor:pointer;
+}
+</style>
+
+<!-- ===== JAVASCRIPT ===== -->
 <script>
+
 function openMenu(){
-    document.getElementById('aboutOverlay').classList.add('active');
+    document.getElementById("menu").classList.add("active");
 }
 
 function closeMenu(){
-    document.getElementById('aboutOverlay').classList.remove('active');
+    document.getElementById("menu").classList.remove("active");
 }
 
+// smooth scroll + close menu
+document.querySelectorAll('.menu a').forEach(link=>{
+    link.addEventListener('click', function(e){
+        const target = document.querySelector(this.getAttribute('href'));
+        if(target){
+            e.preventDefault();
+            target.scrollIntoView({behavior:"smooth"});
+            closeMenu();
+        }
+    });
+});
+
 function openPrivacy(){
-    document.getElementById('privacyModal').style.display='block';
+    document.getElementById("privacy").style.display="flex";
 }
 
 function closePrivacy(){
-    document.getElementById('privacyModal').style.display='none';
+    document.getElementById("privacy").style.display="none";
 }
 
 function openLegal(){
-    document.getElementById('legalModal').style.display='block';
+    document.getElementById("legal").style.display="flex";
 }
 
 function closeLegal(){
-    document.getElementById('legalModal').style.display='none';
+    document.getElementById("legal").style.display="none";
 }
 
-window.onclick=function(e){
-    if(e.target.classList.contains('modal')){
-        e.target.style.display='none';
+// close modal on outside click
+window.addEventListener("click", function(e){
+    if(e.target.classList.contains("modal")){
+        e.target.style.display="none";
     }
-}
+});
+
 </script>
 
 </body>
