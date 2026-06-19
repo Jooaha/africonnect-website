@@ -73,7 +73,26 @@ header{
     text-align:center;
     border-bottom:1px solid #e2e8f0;
 }
+.logo-badge {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 1rem;
+    border-radius: 50%;
+    background: var(--primary);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 1.5rem;
+}
 
+header h1 {
+    margin: 0;
+    font-size: clamp(2.5rem, 8vw, 4.5rem);
+    font-weight: 800;
+    letter-spacing: -1px;
+}
 header h1{
     margin:0;
     font-size:clamp(2.5rem,8vw,4.5rem);
@@ -291,6 +310,7 @@ footer{
 </div>
 
 <header>
+    <div class="logo-badge">SP</div>
     <h1>ShonaPay</h1>
     <p class="subtitle">Your digital access to the world.</p>
 </header>
@@ -371,7 +391,57 @@ footer{
         </section>
 
     </main>
+<section class="why-us">
 
+    <h2>Why Choose ShonaPay?</h2>
+
+    <div class="why-grid">
+
+        <div class="why-card">
+            <h3>⚡ Fast Activation</h3>
+            <p>Access digital services instantly through trusted partners.</p>
+        </div>
+
+        <div class="why-card">
+            <h3>🌍 Cross-Border Access</h3>
+            <p>Stay connected across Africa and beyond.</p>
+        </div>
+
+        <div class="why-card">
+            <h3>🔒 Secure Connections</h3>
+            <p>Your requests are processed through trusted provider networks.</p>
+        </div>
+
+        <div class="why-card">
+            <h3>📱 Mobile First</h3>
+            <p>Optimized for smartphones and low-bandwidth environments.</p>
+        </div>
+
+    </div>
+
+</section>
+    .why-us{
+    margin-top:4rem;
+    text-align:center;
+}
+
+.why-us h2{
+    margin-bottom:2rem;
+}
+
+.why-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:1.5rem;
+}
+
+.why-card{
+    background:white;
+    padding:1.5rem;
+    border-radius:12px;
+    border:1px solid #e2e8f0;
+}
+    
 </div>
 
 <div class="ai-chat-widget"
