@@ -1,20 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ShonaPay | Your digital access to the world</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShonaPay | Your digital access to the world</title>
 
-<!-- Fixed Font Placement Outside Style Tags -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- External Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- CSS Styles -->
+    <style>
+        :root {
+            --primary: #0284c7;
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --gray: #64748b;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+        }
+    </style>
+</head>
+<body>
 
-<style>
-:root{
-    --primary:#0284c7;
-    --dark:#0f172a;
-    --light:#f8fafc;
-    --gray:#64748b;
-}
+    <!-- Visible Content Goes Here -->
+    <h1>
+        ShonaPay
+        <span id="typing"></span>
+    </h1>
+
+</body>
+</html>
 
 *{
     box-sizing:border-box;
@@ -43,7 +62,7 @@ body{
     border:none;
     font-size:2rem;
     cursor:pointer;
-    color:var(--dark);
+    color:var(--white);
 }
 
 .lang-select{
@@ -399,7 +418,7 @@ onclick="alert('Our AI assistant setup is initialization... Stay tuned!')">
     <a href="#" onclick="openLegal()">Legal Terms & Conditions</a>
 </div>
 
-<p>&copy; 2026 ShonaPay. All rights reserved. Empowering digital access across Africa. </p>
+<p>&copy; 2026 ShonaPay. All rights reserved.</p>
 
 
 <p class="disclaimer">
