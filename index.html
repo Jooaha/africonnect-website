@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+
+</header>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ShonaPay | Your digital access to the world</title>
@@ -40,47 +41,6 @@
         }
     </style>
 </head>
-<body>
-
-    <!-- Semantic Layout Wrapper -->
-    <main>
-        <h1>
-            ShonaPay <span id="typing" aria-live="polite"></span>
-        </h1>
-    </main>
-
-    <!-- Missing JavaScript for the Typing Animation -->
-    <script>
-        const textElement = document.getElementById("typing");
-        const words = ["Easy", "Fast", "Secure"];
-        let wordIndex = 0;
-        let charIndex = 0;
-
-        function type() {
-            if (charIndex < words[wordIndex].length) {
-                textElement.textContent += words[wordIndex].charAt(charIndex);
-                charIndex++;
-                setTimeout(type, 150);
-            } else {
-                setTimeout(erase, 1000);
-            }
-        }
-
-        function erase() {
-            if (charIndex > 0) {
-                textElement.textContent = words[wordIndex].substring(0, charIndex - 1);
-                charIndex--;
-                setTimeout(erase, 100);
-            } else {
-                wordIndex = (wordIndex + 1) % words.length;
-                setTimeout(type, 500);
-            }
-        }
-
-        document.addEventListener("DOMContentLoaded", type);
-    </script>
-</body>
-</html>
 
 
 *{
@@ -129,8 +89,9 @@ header{
 
 header h1{
     margin:0;
-    font-size:3.2rem;
+    font-size:clamp(2.5rem,8vw,4.5rem);
     font-weight:800;
+    letter-spacing:-1px;
 }
 
 .subtitle{
