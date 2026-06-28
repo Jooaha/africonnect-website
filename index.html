@@ -1,153 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>ShonaPay | Stay Connected Anywhere</title>
-<meta name="description" content="Top up mobile credit, activate an eSIM, and access healthcare services instantly from trusted global providers.">
+<title>ShonaPay | Mobile Top-Ups, eSIMs & Healthcare Services</title>
+
+<meta name="description" content="Stay connected anywhere in the world. Access mobile top-ups, global eSIM plans, and healthcare services through trusted partners.">
+
+<meta name="keywords" content="airalo, esim, mobile top up, ding, healthcare, travel esim, Global connectivity, international airtime">
+
+<meta name="author" content="ShonaPay">
+
+<meta property="og:title" content="ShonaPay | Stay Connected Anywhere">
+<meta property="og:description" content="Mobile top-ups, global eSIMs and healthcare services from trusted partners.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://shonapay.com">
+<meta property="og:image" content="https://shonapay.com/og-image.jpg">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ShonaPay">
+<meta name="twitter:description" content="Top-up mobile credit, activate eSIMs and access healthcare globally.">
+
+<link rel="canonical" href="https://shonapay.com">
+
+<!-- Google Analytics Placeholder -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+/*
+Replace:
+G-XXXXXXXXXX
+with your GA4 Measurement ID
+*/
+gtag('config', 'G-XXXXXXXXXX');
+</script>
 
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Syne:wght@600;700;800&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
+
 :root{
-    --primary:#0057ff;
-    --secondary:#00c896;
-    --dark:#0f172a;
-    --light:#f8fafc;
-    --gray:#64748b;
-    --white:#ffffff;
+--primary:#0057ff;
+--secondary:#00c896;
+--dark:#0f172a;
+--light:#f8fafc;
+--gray:#64748b;
+--white:#ffffff;
+--border:#e2e8f0;
+--shadow:0 10px 30px rgba(0,0,0,.08);
 }
 
-/* RESET */
-*{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;}
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
 body{
-    font-family:'Inter',sans-serif;
-    background:var(--light);
-    color:var(--dark);
-    line-height:1.6;
+font-family:'Inter',sans-serif;
+background:var(--light);
+color:var(--dark);
+line-height:1.6;
+font-size:16px;
 }
 
-/* LAYOUT */
+img{
+max-width:100%;
+display:block;
+}
+
+a{
+text-decoration:none;
+}
+
 .container{
-    width:90%;
-    max-width:1200px;
-    margin:auto;
+width:92%;
+max-width:1200px;
+margin:auto;
 }
 
-/* HEADER */
-header{
-    background:#fff;
-    position:sticky;
-    top:0;
-    z-index:1000;
-    box-shadow:0 2px 15px rgba(0,0,0,.05);
-}
-
-.navbar{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:16px 0;
-}
-
-/* LOGO */
-.logo-wrapper{
-    display:flex;
-    align-items:center;
-    gap:12px;
-}
-
-.logo-svg{
-    width:42px;
-    height:42px;
-}
-
-.logo-text{
-    font-weight:800;
-    font-size:1.4rem;
-    color:var(--dark);
-}
-
-/* NAV */
-.nav-links a{
-    text-decoration:none;
-    color:var(--dark);
-    margin-left:18px;
-    font-weight:500;
-}
-
-/* HERO */
-.hero{
-    padding:90px 0;
-    text-align:center;
-    background:linear-gradient(135deg,#0057ff,#00c896);
-    color:white;
-}
-
-.hero h1{
-    font-size:3rem;
-    margin-bottom:20px;
-}
-
-.hero p{
-    max-width:700px;
-    margin:auto;
-    font-size:1.15rem;
-    margin-bottom:30px;
-}
-
-/* BUTTONS */
-.hero-buttons{
-    display:flex;
-    gap:15px;
-    justify-content:center;
-    flex-wrap:wrap;
-}
-
-.btn{
-    padding:14px 26px;
-    border-radius:10px;
-    text-decoration:none;
-    font-weight:600;
-    transition:.25s;
-}
-
-.btn-primary{
-    background:white;
-    color:var(--primary);
-}
-
-.btn-primary:hover{
-    transform:translateY(-2px);
-}
-
-/* SECTIONS */
-.section{
-    padding:80px 0;
-}
-
-.section-title{
-    text-align:center;
-    margin-bottom:50px;
-}
-
-.section-title h2{
-    font-size:2.2rem;
-}
-
-/* GRID */
-.features{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:25px;
-}
-
-/* CARDS */
+  
+  /* CARDS */
 .feature-card, .service-card{
     background:white;
     border-radius:16px;
@@ -197,17 +143,128 @@ header{
     margin:0 auto 20px;
     font-weight:bold;
 }
+  
+/* ==========================
+HEADER
+========================== */
 
-/* TRUST */
-.trust{
-    background:#fff;
-    padding:50px;
-    border-radius:16px;
-    text-align:center;
-    box-shadow:0 10px 25px rgba(0,0,0,.05);
+.header{
+position:sticky;
+top:0;
+z-index:1000;
+background:white;
+box-shadow:0 2px 15px rgba(0,0,0,.05);
 }
 
-        /* ===== WHY CHOOSE US: 4 CIRCLES FORMAT ===== */
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:16px 0;
+}
+
+.logo-wrapper{
+display:flex;
+align-items:center;
+gap:12px;
+}
+
+.logo-mark{
+width:48px;
+height:48px;
+border-radius:14px;
+background:linear-gradient(
+135deg,
+var(--primary),
+var(--secondary)
+);
+display:flex;
+align-items:center;
+justify-content:center;
+color:white;
+font-weight:800;
+font-size:20px;
+}
+
+.logo-text{
+font-size:1.35rem;
+font-weight:800;
+color:var(--dark);
+}
+
+.nav-links{
+display:flex;
+align-items:center;
+gap:24px;
+}
+
+.nav-links a{
+font-weight:600;
+color:var(--dark);
+transition:.25s;
+}
+
+.nav-links a:hover{
+color:var(--primary);
+}
+
+.language-select{
+padding:10px;
+border-radius:8px;
+border:1px solid var(--border);
+background:white;
+font-weight:600;
+}
+
+/* ==========================
+MOBILE MENU
+========================== */
+
+.menu-btn{
+display:none;
+font-size:28px;
+background:none;
+border:none;
+cursor:pointer;
+}
+
+.mobile-menu{
+position:fixed;
+top:0;
+left:-320px;
+width:320px;
+height:100%;
+background:white;
+padding:30px;
+z-index:3000;
+transition:.3s;
+box-shadow:4px 0 25px rgba(0,0,0,.15);
+}
+
+.mobile-menu.active{
+left:0;
+}
+
+.mobile-menu a{
+display:block;
+padding:14px 0;
+font-weight:600;
+color:var(--dark);
+border-bottom:1px solid var(--border);
+}
+
+.overlay{
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.5);
+display:none;
+z-index:2500;
+}
+
+.overlay.active{
+display:block;
+}
+ /* ===== WHY CHOOSE US: 4 CIRCLES FORMAT ===== */
         .grid-circles {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -255,116 +312,337 @@ header{
             font-weight: 600;
             line-height: 1.3;
         }
+/* ==========================
+HERO
+========================== */
 
-/* FAQ */
-details{
-    background:white;
-    margin-bottom:12px;
-    padding:18px;
-    border-radius:10px;
+.hero{
+background:
+linear-gradient(
+135deg,
+#0057ff,
+#00c896
+);
+color:white;
+padding:100px 0;
+text-align:center;
 }
 
-/* FOOTER */
-footer{
-    background:var(--dark);
-    color:white;
-    padding:50px 0;
-    text-align:center;
+.hero h1{
+font-size:clamp(2.2rem,5vw,4rem);
+font-weight:800;
+margin-bottom:20px;
+line-height:1.1;
 }
 
-footer a{
-    color:white;
-    margin:0 10px;
-    text-decoration:none;
+.hero p{
+max-width:760px;
+margin:auto;
+font-size:1.15rem;
+margin-bottom:35px;
 }
 
-.disclosure{
-    margin-top:15px;
-    font-size:.9rem;
-    color:#cbd5e1;
+.hero-buttons{
+display:flex;
+justify-content:center;
+gap:15px;
+flex-wrap:wrap;
 }
 
-/* MOBILE */
+.btn{
+display:inline-flex;
+align-items:center;
+justify-content:center;
+padding:14px 28px;
+border-radius:12px;
+font-weight:700;
+transition:.25s;
+}
+
+.btn-primary{
+background:white;
+color:var(--primary);
+}
+
+.btn-primary:hover{
+transform:translateY(-3px);
+}
+
+.btn-secondary{
+background:rgba(255,255,255,.15);
+border:1px solid rgba(255,255,255,.3);
+color:white;
+}
+
+.btn-secondary:hover{
+background:rgba(255,255,255,.25);
+}
+
+.trust-badges{
+margin-top:40px;
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:20px;
+}
+
+.badge{
+background:rgba(255,255,255,.15);
+padding:10px 16px;
+border-radius:50px;
+font-weight:600;
+}
+
+/* ==========================
+STATS
+========================== */
+
+.stats{
+padding:60px 0;
+background:white;
+}
+
+.stats-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:25px;
+text-align:center;
+}
+
+.stat-card{
+background:white;
+padding:25px;
+border-radius:16px;
+box-shadow:var(--shadow);
+}
+
+.stat-number{
+font-size:2rem;
+font-weight:800;
+color:var(--primary);
+}
+
+.stat-label{
+color:var(--gray);
+}
+
+/* ==========================
+SECTION TITLES
+========================== */
+
+.section{
+padding:90px 0;
+}
+
+.section-title{
+text-align:center;
+margin-bottom:60px;
+}
+
+.section-title h2{
+font-size:2.4rem;
+margin-bottom:10px;
+}
+
+.section-title p{
+color:var(--gray);
+max-width:700px;
+margin:auto;
+}
+
+/* ==========================
+MOBILE
+========================== */
+
 @media(max-width:768px){
-    .hero h1{font-size:2.2rem;}
-    .nav-links{display:none;}
-  
+
+.nav-links{
+display:none;
 }
+
+.menu-btn{
+display:block;
+}
+
+.stats-grid{
+grid-template-columns:1fr;
+}
+
+.hero{
+padding:80px 0;
+}
+
+.hero-buttons{
+flex-direction:column;
+}
+
+.btn{
+width:100%;
+}
+
+}
+
 </style>
 </head>
 
 <body>
 
+<!-- MOBILE OVERLAY -->
+<div class="overlay" id="overlay"></div>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+
+<h2 style="margin-bottom:20px;">
+ShonaPay
+</h2>
+
+<a href="#services">Services</a>
+<a href="#how">How It Works</a>
+<a href="#partners">Partners</a>
+<a href="#why choose us?">Why choose us?</a>
+<a href="#faq">FAQ</a>
+<a href="#contact">Contact</a>
+
+</div>
+
 <!-- HEADER -->
-<header>
+<header class="header">
+
 <div class="container navbar">
 
 <div class="logo-wrapper">
 
-<!-- YOUR LOGO (FIXED SVG) -->
-<svg class="logo-svg" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
-<g transform="skewX(-14) translate(30, 20)">
-<path d="M 125,240 
-         C 140,315 185,315 185,280 
-         L 185,137 
-         C 185,87 245,87 245,165
-         L 245,105
-         L 310,105
-         C 350,105 350,205 310,205
-         L 245,205
-         L 245,250"
-      fill="none"
-      stroke="#000"
-      stroke-width="28"
-      stroke-linecap="round"
-      stroke-linejoin="round"/>
-</g>
-</svg>
+<div class="logo-mark">
+SP
+</div>
 
-<div class="logo-text">ShonaPay</div>
+<div class="logo-text">
+ShonaPay
+</div>
 
 </div>
 
 <nav class="nav-links">
+
 <a href="#services">Services</a>
 <a href="#how">How It Works</a>
-<a href="#why">Why Choose Us</a>
+<a href="#partners">Partners</a>
+<a href="#why choose us?">Why choose us?</a>
 <a href="#faq">FAQ</a>
+
+<select class="language-select">
+<option>English</option>
+<option>Français</option>
+<option>Português</option>
+<option>العربية</option>
+<option>Kiswahili</option>
+</select>
+
 </nav>
 
+<button
+class="menu-btn"
+onclick="openMenu()"
+aria-label="Open menu">
+☰
+</button>
+
 </div>
+
 </header>
 
 <!-- HERO -->
 <section class="hero">
+
 <div class="container">
 
-<h1>Stay Connected Anywhere in the World</h1>
+<h1>
+Stay Connected Anywhere in the World
+</h1>
 
 <p>
-Top up mobile credit, activate global eSIMs, and access digital healthcare instantly through trusted partners.
+Access mobile top-ups, global eSIM plans and healthcare services through trusted providers. Fast activation, secure checkout and worldwide coverage.
 </p>
 
 <div class="hero-buttons">
-<a href="#services" class="btn btn-primary"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone-plus" viewBox="0 0 16 16">
-  <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.6 17.6 0 0 0 4.168 6.608 17.6 17.6 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.68.68 0 0 0-.58-.122l-2.19.547a1.75 1.75 0 0 1-1.657-.459L5.482 8.062a1.75 1.75 0 0 1-.46-1.657l.548-2.19a.68.68 0 0 0-.122-.58zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z"/>
-  <path fill-rule="evenodd" d="M12.5 1a.5.5 0 0 1 .5.5V3h1.5a.5.5 0 0 1 0 1H13v1.5a.5.5 0 0 1-1 0V4h-1.5a.5.5 0 0 1 0-1H12V1.5a.5.5 0 0 1 .5-.5"/>
-</svg> Top-Up</a>
-<a href="#services" class="btn btn-primary"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-sim" viewBox="0 0 16 16">
-  <path d="M2 1.5A1.5 1.5 0 0 1 3.5 0h7.086a1.5 1.5 0 0 1 1.06.44l1.915 1.914A1.5 1.5 0 0 1 14 3.414V14.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 14.5zM3.5 1a.5.5 0 0 0-.5.5v13a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V3.414a.5.5 0 0 0-.146-.353l-1.915-1.915A.5.5 0 0 0 10.586 1z"/>
-  <path d="M5.5 4a.5.5 0 0 0-.5.5V6h2.5V4zm3 0v2H11V4.5a.5.5 0 0 0-.5-.5zM11 7H5v2h6zm0 3H8.5v2h2a.5.5 0 0 0 .5-.5zm-3.5 2v-2H5v1.5a.5.5 0 0 0 .5.5zM4 4.5A1.5 1.5 0 0 1 5.5 3h5A1.5 1.5 0 0 1 12 4.5v7a1.5 1.5 0 0 1-1.5 1.5h-5A1.5 1.5 0 0 1 4 11.5z"/>
-</svg> Get eSIM</a>
-<a href="#services" class="btn btn-primary"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-pulse" viewBox="0 0 16 16">
-  <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053.918 3.995.78 5.323 1.508 7H.43c-2.128-5.697 4.165-8.83 7.394-5.857q.09.083.176.171a3 3 0 0 1 .176-.17c3.23-2.974 9.522.159 7.394 5.856h-1.078c.728-1.677.59-3.005.108-3.947C13.486.878 10.4.28 8.717 2.01zM2.212 10h1.315C4.593 11.183 6.05 12.458 8 13.795c1.949-1.337 3.407-2.612 4.473-3.795h1.315c-1.265 1.566-3.14 3.25-5.788 5-2.648-1.75-4.523-3.434-5.788-5"/>
-  <path d="M10.464 3.314a.5.5 0 0 0-.945.049L7.921 8.956 6.464 5.314a.5.5 0 0 0-.88-.091L3.732 8H.5a.5.5 0 0 0 0 1H4a.5.5 0 0 0 .416-.223l1.473-2.209 1.647 4.118a.5.5 0 0 0 .945-.049l1.598-5.593 1.457 3.642A.5.5 0 0 0 12 9h3.5a.5.5 0 0 0 0-1h-3.162z"/>
-</svg> Healthcare</a>
+
+<a href="#services" class="btn btn-primary">
+Explore Services
+</a>
+
+<a href="#contact" class="btn btn-secondary">
+Get Support
+</a>
+
+</div>
+
+<div class="trust-badges">
+
+<div class="badge">
+✓ Trusted Global Partners
+</div>
+
+<div class="badge">
+✓ Secure Transactions
+</div>
+
+<div class="badge">
+✓ Instant Activation
 </div>
 
 </div>
+
+</div>
+
 </section>
 
-<!-- SERVICES -->
+<!-- STATS -->
+<section class="stats">
+
+<div class="container">
+
+<div class="stats-grid">
+
+<div class="stat-card">
+<div class="stat-number">
+100+
+</div>
+<div class="stat-label">
+Countries Supported
+</div>
+</div>
+
+<div class="stat-card">
+<div class="stat-number">
+24/7
+</div>
+<div class="stat-label">
+Service Availability
+</div>
+</div>
+
+<div class="stat-card">
+<div class="stat-number">
+3
+</div>
+<div class="stat-label">
+Trusted Service Categories
+</div>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+  
+<!-- =========================
+SERVICES
+========================= -->
 <section class="section" id="services">
+
 <div class="container">
 
 <div class="section-title">
@@ -410,55 +688,99 @@ Top up mobile credit, activate global eSIMs, and access digital healthcare insta
 </div>
 
 </div>
-</div>
+
 </section>
+  
+  
+<!-- =========================
+PARTNERS
+========================= -->
+<section class="section" id="partners" style="background:#ffffff;">
 
-<!-- TRUST -->
-<section class="section">
-<div class="container">
-
-<div class="trust">
-<h2>Trusted Global Platform</h2>
-<p>
-ShonaPay connects you only with verified international service providers. Secure payments, encrypted checkout, and transparent affiliate partnerships.
-</p>
-</div>
-
-</div>
-</section>
-
-<!-- HOW IT WORKS -->
-<section class="section" id="how">
 <div class="container">
 
 <div class="section-title">
-<h2>Get Started in Minutes</h2>
+<h2>Trusted Partners</h2>
+<p>We only connect users with verified global service providers.</p>
 </div>
 
-<div class="steps">
+<div style="display:flex;justify-content:center;flex-wrap:wrap;gap:20px;">
 
-<div class="step">
-<div class="step-number">1</div>
-<h3>Choose Service</h3>
-<p>Select top-up, eSIM or healthcare.</p>
+<div style="padding:15px 25px;background:#f8fafc;border-radius:50px;font-weight:700;color:#0f172a;">
+Airalo
 </div>
 
-<div class="step">
-<div class="step-number">2</div>
-<h3>Complete Payment</h3>
-<p>Use secure partner checkout.</p>
+<div style="padding:15px 25px;background:#f8fafc;border-radius:50px;font-weight:700;color:#0f172a;">
+Ding
 </div>
 
-<div class="step">
-<div class="step-number">3</div>
-<h3>Get Instant Access</h3>
-<p>Your service activates immediately.</p>
+<div style="padding:15px 25px;background:#f8fafc;border-radius:50px;font-weight:700;color:#0f172a;">
+Healthcare Providers
 </div>
 
 </div>
+
 </div>
+
 </section>
 
+<!-- =========================
+HOW IT WORKS
+========================= -->
+<section class="section" id="how" style="background:#f8fafc;">
+
+<div class="container">
+
+<div class="section-title">
+<h2>How It Works</h2>
+<p>Simple 3-step process to get started in minutes.</p>
+</div>
+
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:25px;text-align:center;">
+
+<div style="background:white;padding:30px;border-radius:16px;box-shadow:0 10px 25px rgba(0,0,0,.06);">
+
+<div style="width:60px;height:60px;border-radius:50%;background:#0057ff;color:white;display:flex;align-items:center;justify-content:center;margin:auto;margin-bottom:15px;font-weight:800;">
+1
+</div>
+
+<h3>Choose Service</h3>
+<p style="color:#64748b;">Select eSIM, top-up or healthcare service.</p>
+
+</div>
+
+<div style="background:white;padding:30px;border-radius:16px;box-shadow:0 10px 25px rgba(0,0,0,.06);">
+
+<div style="width:60px;height:60px;border-radius:50%;background:#0057ff;color:white;display:flex;align-items:center;justify-content:center;margin:auto;margin-bottom:15px;font-weight:800;">
+2
+</div>
+
+<h3>Complete Checkout</h3>
+<p style="color:#64748b;">Pay securely via trusted partner systems.</p>
+
+</div>
+
+<div style="background:white;padding:30px;border-radius:16px;box-shadow:0 10px 25px rgba(0,0,0,.06);">
+
+<div style="width:60px;height:60px;border-radius:50%;background:#0057ff;color:white;display:flex;align-items:center;justify-content:center;margin:auto;margin-bottom:15px;font-weight:800;">
+3
+</div>
+
+<h3>Instant Activation</h3>
+<p style="color:#64748b;">Your service activates immediately worldwide.</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+  
+<!-- =========================
+WHY CHOOSE US?
+========================= -->
  <!-- ===== WHY CHOOSE US: 4 BALANCED CIRCLES ===== -->
     <section class="section" id="why">
         <h2 class="section-title">Why Choose Us?</h2>
@@ -471,7 +793,7 @@ ShonaPay connects you only with verified international service providers. Secure
 
             <div class="circle-node">
                 <h3>🌍 Global</h3>
-                <p>Connect across the world</p>
+                <p>Connect across the globe</p>
             </div>
 
             <div class="circle-node">
@@ -487,66 +809,232 @@ ShonaPay connects you only with verified international service providers. Secure
         </div>
     </section>
 
+<!-- =========================
+  
+FAQ
+========================= -->
+<section class="section" id="faq" style="background:#f8fafc;">
 
-<!-- FAQ -->
-<section class="section" id="faq">
 <div class="container">
 
 <div class="section-title">
 <h2>Frequently Asked Questions</h2>
+<p>Everything you need to know before using ShonaPay.</p>
 </div>
 
-<details>
-<summary>Is ShonaPay a provider?</summary>
-<p>No, ShonaPay connects users with trusted global partners.</p>
+<div style="max-width:800px;margin:auto;">
+
+<details style="background:white;padding:18px;border-radius:12px;margin-bottom:12px;">
+<summary style="font-weight:700;cursor:pointer;">Is ShonaPay a service provider?</summary>
+<p style="margin-top:10px;color:#64748b;">
+No. ShonaPay connects users to trusted third-party providers like Airalo, Ding, and healthcare partners.
+</p>
 </details>
 
-<details>
-<summary>Are services instant?</summary>
-<p>Yes, most services are delivered within minutes.</p>
+<details style="background:white;padding:18px;border-radius:12px;margin-bottom:12px;">
+<summary style="font-weight:700;cursor:pointer;">Are services instant?</summary>
+<p style="margin-top:10px;color:#64748b;">
+Yes. Most services such as eSIM activation and mobile top-ups are delivered within minutes.
+</p>
 </details>
 
-<details>
-<summary>Is it secure?</summary>
-<p>Yes, all transactions go through encrypted partner systems.</p>
+<details style="background:white;padding:18px;border-radius:12px;margin-bottom:12px;">
+<summary style="font-weight:700;cursor:pointer;">Is payment secure?</summary>
+<p style="margin-top:10px;color:#64748b;">
+Yes. All payments are processed securely through partner platforms with encryption.
+</p>
+</details>
+
+<details style="background:white;padding:18px;border-radius:12px;margin-bottom:12px;">
+<summary style="font-weight:700;cursor:pointer;">Can I use services worldwide?</summary>
+<p style="margin-top:10px;color:#64748b;">
+Yes. Services are available in 100+ countries depending on the provider.
+</p>
+</details>
+
+<details style="background:white;padding:18px;border-radius:12px;margin-bottom:12px;">
+<summary style="font-weight:700;cursor:pointer;">Can I use an eSIM internationally?</summary>
+<p style="margin-top:10px;color:#64748b;">
+Yes, depending on the selected plan and destination.
+</p>
 </details>
   
-  <details>
-<summary>Can I use an eSIM internationally?</summary>
-<p>Yes, depending on the selected plan and destination.</p>
-</details>
-
-<details>
-<summary>Is healthcare available globally?</summary>
-<p>Availability depends on provider coverage and local regulations.</p>
-</details>
+</div>
 
 </div>
+
 </section>
 
-<!-- FOOTER -->
-<footer>
+<!-- =========================
+LEAD CAPTURE (EMAIL)
+========================= -->
+<section class="section" id="contact" style="background:#ffffff;">
+
 <div class="container">
 
-<p><strong>ShonaPay</strong></p>
-
-<p>
-<a href="/about.html">About</a>
-<a href="/privacy-policy.html">Privacy Policy</a>
-<a href="/terms.html">Terms</a>
-<a href="/contact.html">Contact</a>
-</p>
-
-<div class="disclosure">
-Affiliate disclosure: Some links earn us a commission at no extra cost to you.
+<div class="section-title">
+<h2>Get Exclusive Offers</h2>
+<p>Join our list for updates, deals, and service alerts.</p>
 </div>
 
-<p style="margin-top:20px;">
-© 2026 ShonaPay. All Rights Reserved.
+<div style="max-width:600px;margin:auto;background:#f8fafc;padding:30px;border-radius:16px;box-shadow:0 10px 25px rgba(0,0,0,.05);">
+
+<form>
+
+<label style="font-weight:600;">Email Address</label>
+<input type="email" placeholder="Enter your email"
+style="width:100%;padding:14px;margin-top:10px;margin-bottom:15px;border-radius:10px;border:1px solid #e2e8f0;">
+
+<button type="submit"
+style="width:100%;padding:14px;background:#0057ff;color:white;border:none;border-radius:10px;font-weight:700;cursor:pointer;">
+Subscribe Now
+</button>
+
+<p style="font-size:.85rem;color:#64748b;margin-top:10px;">
+We never spam. You can unsubscribe anytime.
+</p>
+
+</form>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =========================
+WHATSAPP FLOATING CTA
+========================= -->
+<a href="https://wa.me/YOURNUMBER"
+target="_blank"
+style="
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+color:white;
+width:60px;
+height:60px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:28px;
+box-shadow:0 10px 25px rgba(0,0,0,.2);
+z-index:9999;
+text-decoration:none;"
+aria-label="Chat on WhatsApp">
+
+💬
+
+</a>
+
+  
+<!-- =========================
+FOOTER
+========================= -->
+<footer style="background:#0f172a;color:white;padding:60px 0;margin-top:80px;">
+
+<div class="container">
+
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:30px;">
+
+<!-- BRAND -->
+<div>
+<h2 style="margin-bottom:15px;">ShonaPay</h2>
+<p style="color:#cbd5e1;">
+Connecting users to trusted global services including eSIMs, mobile top-ups, and healthcare providers.
+</p>
+</div>
+
+<!-- QUICK LINKS -->
+<div>
+<h3 style="margin-bottom:15px;">Quick Links</h3>
+
+<p><a href="#services" style="color:white;text-decoration:none;">Services</a></p>
+<p><a href="#how" style="color:white;text-decoration:none;">How It Works</a></p>
+<p><a href="#why choose us?" style="color:white;text-decoration:none;">Why choose us?</a></p>
+<p><a href="#faq" style="color:white;text-decoration:none;">FAQ</a></p>
+<p><a href="#contact" style="color:white;text-decoration:none;">Contact</a></p>
+
+</div>
+
+<!-- LEGAL -->
+<div>
+<h3 style="margin-bottom:15px;">Legal</h3>
+
+<p><a href="#" style="color:white;text-decoration:none;">Privacy Policy</a></p>
+<p><a href="#" style="color:white;text-decoration:none;">Terms of Service</a></p>
+
+<p style="margin-top:15px;color:#cbd5e1;font-size:.85rem;">
+Affiliate disclosure: Some links may earn us a commission at no extra cost to you.
 </p>
 
 </div>
+
+<!-- CONTACT -->
+<div>
+<h3 style="margin-bottom:15px;">Contact</h3>
+
+<p>Email: <br>
+<a href="mailto:support@shonapay.com" style="color:#00c896;">
+support@shonapay.com
+</a>
+</p>
+
+</div>
+
+</div>
+
+<!-- COPYRIGHT -->
+<div style="text-align:center;margin-top:40px;color:#94a3b8;font-size:.9rem;">
+© 2026 ShonaPay. All rights reserved.
+</div>
+
+</div>
+
 </footer>
+
+<!-- =========================
+JAVASCRIPT (MENU + UX)
+========================= -->
+<script>
+
+// MOBILE MENU OPEN
+function openMenu(){
+document.getElementById("mobileMenu").classList.add("active");
+document.getElementById("overlay").classList.add("active");
+}
+
+// MOBILE MENU CLOSE ON OVERLAY CLICK
+document.getElementById("overlay").addEventListener("click", function(){
+document.getElementById("mobileMenu").classList.remove("active");
+this.classList.remove("active");
+});
+
+// SMOOTH CLOSE ON LINK CLICK
+document.querySelectorAll(".mobile-menu a").forEach(link=>{
+link.addEventListener("click", ()=>{
+document.getElementById("mobileMenu").classList.remove("active");
+document.getElementById("overlay").classList.remove("active");
+});
+});
+
+// EMAIL FORM (basic frontend handling)
+document.querySelector("form").addEventListener("submit", function(e){
+e.preventDefault();
+
+const email = this.querySelector("input").value;
+
+if(email){
+alert("Thank you! You are subscribed.");
+this.reset();
+}else{
+alert("Please enter a valid email.");
+}
+});
+
+</script>
 
 </body>
 </html>
