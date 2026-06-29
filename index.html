@@ -23,9 +23,19 @@
 
 <link rel="canonical" href="https://shonapay.com">
 
+<!-- Google Analytics Placeholder -->
+<script async src="https://googletagmanager.com"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-XXXXXXXXXX');
+</script>
+
+<!-- Fonts -->
 <link rel="preconnect" href="https://googleapis.com">
 <link rel="preconnect" href="https://gstatic.com" crossorigin>
-<link href="https://googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://googleapis.com" rel="stylesheet">
 
 <style>
 :root{
@@ -39,42 +49,390 @@
 --shadow:0 10px 30px rgba(0,0,0,.08);
 }
 
-*{margin:0;padding:0;box-sizing:border-box;}
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
 
 body{
 font-family:'Inter',sans-serif;
 background:var(--light);
 color:var(--dark);
 line-height:1.6;
+font-size:16px;
 }
 
-.container{width:92%;max-width:1200px;margin:auto;}
+img{
+max-width:100%;
+display:block;
+}
 
-/* existing styles preserved... (unchanged for brevity) */
+a{
+text-decoration:none;
+}
 
-/* TOPUP WIDGET */
-.topup-container{
-max-width:420px;
-margin:40px auto;
-padding:20px;
+.container{
+width:92%;
+max-width:1200px;
+margin:auto;
+}
+  
+/* CARDS */
+.feature-card, .service-card{
+    background:white;
+    border-radius:25px;
+    padding:16px;
+    text-align:center;
+    box-shadow:0 10px 25px rgba(0,0,0,.06);
+}
+
+.service-card ul{
+    list-style:none;
+    margin:20px 0;
+}
+
+.service-card li{
+    margin:10px 0;
+}
+
+.service-btn{
+    display:inline-block;
+    background:var(--primary);
+    color:white;
+    padding:12px 22px;
+    border-radius:10px;
+    text-decoration:none;
+    font-weight:600;
+}
+
+/* STEPS */
+.steps{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.step{
+    text-align:center;
+}
+
+.step-number{
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    background:var(--primary);
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin:0 auto 20px;
+    font-weight:bold;
+}
+
+/* ==========================
+HEADER
+========================== */
+.header{
+position:sticky;
+top:0;
+z-index:1000;
 background:white;
-border-radius:12px;
-box-shadow:0 10px 25px rgba(0,0,0,.06);
+box-shadow:0 2px 15px rgba(0,0,0,.05);
 }
 
-.topup-container h3{
-margin-bottom:15px;
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:16px 0;
 }
 
-.topup-container select{
-width:100%;
+.logo-wrapper{
+display:flex;
+align-items:center;
+gap:12px;
+}
+
+.logo-mark{
+width:48px;
+height:48px;
+border-radius:14px;
+background:linear-gradient(135deg, var(--primary), var(--secondary));
+display:flex;
+align-items:center;
+justify-content:center;
+color:white;
+font-weight:800;
+font-size:20px;
+}
+
+.logo-text{
+font-size:1.35rem;
+font-weight:800;
+color:var(--dark);
+}
+
+.nav-links{
+display:flex;
+align-items:center;
+gap:24px;
+}
+
+.nav-links a{
+font-weight:600;
+color:var(--dark);
+transition:.25s;
+}
+
+.nav-links a:hover{
+color:var(--primary);
+}
+
+.language-select{
 padding:10px;
-border-radius:6px;
-border:1px solid #ccc;
+border-radius:8px;
+border:1px solid var(--border);
+background:white;
+font-weight:600;
+}
+
+/* ==========================
+MOBILE MENU
+========================== */
+.menu-btn{
+display:none;
+font-size:28px;
+background:none;
+border:none;
+cursor:pointer;
+}
+
+.mobile-menu{
+position:fixed;
+top:0;
+left:-320px;
+width:320px;
+height:100%;
+background:white;
+padding:30px;
+z-index:3000;
+transition:.3s;
+box-shadow:4px 0 25px rgba(0,0,0,.15);
+}
+
+.mobile-menu.active{
+left:0;
+}
+
+.mobile-menu a{
+display:block;
+padding:14px 0;
+font-weight:600;
+color:var(--dark);
+border-bottom:1px solid var(--border);
+}
+
+.overlay{
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.5);
+display:none;
+z-index:2500;
+}
+
+.overlay.active{
+display:block;
+}
+
+/* ==========================
+HERO
+========================== */
+.hero{
+background:linear-gradient(135deg, #0057ff, #00c896);
+color:white;
+padding:100px 0;
+text-align:center;
+}
+
+.hero h1{
+font-size:clamp(2.2rem,5vw,4rem);
+font-weight:800;
+margin-bottom:20px;
+line-height:1.1;
+}
+
+.hero p{
+max-width:760px;
+margin:auto;
+font-size:1.15rem;
+margin-bottom:35px;
+}
+
+.hero-buttons{
+display:flex;
+justify-content:center;
+gap:15px;
+flex-wrap:wrap;
+}
+
+.btn{
+display:inline-flex;
+align-items:center;
+justify-content:center;
+padding:14px 28px;
+border-radius:12px;
+font-weight:700;
+transition:.25s;
+}
+
+.btn-primary{
+background:white;
+color:var(--primary);
+}
+
+.btn-primary:hover{
+transform:translateY(-3px);
+}
+
+.btn-secondary{
+background:rgba(255,255,255,.15);
+border:1px solid rgba(255,255,255,.3);
+color:white;
+}
+
+.btn-secondary:hover{
+background:rgba(255,255,255,.25);
+}
+
+.trust-badges{
+margin-top:40px;
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:20px;
+}
+
+.badge{
+background:rgba(255,255,255,.15);
+padding:10px 16px;
+border-radius:50px;
+font-weight:600;
+}
+
+/* ==========================
+STATS
+========================== */
+.stats{
+padding:60px 0;
+background:white;
+}
+
+.stats-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:25px;
+text-align:center;
+}
+
+.stat-card{
+background:white;
+padding:25px;
+border-radius:16px;
+box-shadow:var(--shadow);
+}
+
+.stat-number{
+font-size:2rem;
+font-weight:800;
+color:var(--primary);
+}
+
+.stat-label{
+color:var(--gray);
+}
+
+/* ==========================
+SECTION TITLES
+========================== */
+.section{
+padding:90px 0;
+}
+
+.section-title{
+text-align:center;
+margin-bottom:60px;
+}
+
+.section-title h2{
+font-size:2.4rem;
+margin-bottom:10px;
+}
+
+.section-title p{
+color:var(--gray);
+max-width:700px;
+margin:auto;
+}
+
+/* WIDGET STYLING */
+.form-group {
+    margin-bottom: 12px;
+    text-align: left;
+}
+.form-group label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+    color: var(--dark);
+}
+.widget-select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background-color: var(--white);
+    font-family: inherit;
+    font-size: 0.9rem;
+    color: var(--dark);
+    cursor: pointer;
+}
+.widget-select:disabled {
+    background-color: #f1f5f9;
+    color: #94a3b8;
+    cursor: not-allowed;
+}
+
+/* ==========================
+MOBILE MEDIA QUERIES
+========================== */
+@media(max-width:768px){
+.nav-links{
+display:none;
+}
+.menu-btn{
+display:block;
+}
+.stats-grid{
+grid-template-columns:1fr;
+}
+.hero{
+padding:80px 0;
+}
+.hero-buttons{
+flex-direction:column;
+}
+.btn{
+width:100%;
+}
 }
 </style>
 </head>
-
 <body>
 
 <!-- MOBILE OVERLAY -->
@@ -103,9 +461,17 @@ border:1px solid #ccc;
 <a href="#how">How It Works?</a>
 <a href="#partners">Partners</a>
 <a href="#faq">FAQ</a>
+
+<select class="language-select">
+<option>English</option>
+<option>Français</option>
+<option>Português</option>
+<option>العربية</option>
+<option>Kiswahili</option>
+</select>
 </nav>
 
-<button class="menu-btn" onclick="openMenu()">☰</button>
+<button class="menu-btn" onclick="openMenu()" aria-label="Open menu">☰</button>
 </div>
 </header>
 
@@ -114,36 +480,16 @@ border:1px solid #ccc;
 <div class="container">
 <h1>Stay Connected Anywhere in the World</h1>
 <p>Get mobile top-ups, global eSIM plans and access to healthcare services through trusted providers.</p>
-</div>
-</section>
 
-<!-- ✅ TOP-UP WIDGET (NEW FEATURE) -->
-<section id="topup">
-<div class="topup-container">
-<h3>International Mobile Top-Up</h3>
-
-<!-- Country -->
-<div style="margin-bottom:15px;">
-<label>Country:</label>
-<select id="countrySelect">
-<option value="">-- Choose a Country --</option>
-</select>
+<div class="hero-buttons">
+<a href="#services" class="btn btn-primary">Explore Services</a>
+<a href="#how" class="btn btn-primary">How it works?</a>
 </div>
 
-<!-- Operator -->
-<div style="margin-bottom:15px;">
-<label>Operator:</label>
-<select id="providerSelect" disabled>
-<option value="">-- Choose Operator --</option>
-</select>
-</div>
-
-<!-- Product -->
-<div style="margin-bottom:15px;">
-<label>Top-Up Amount:</label>
-<select id="productSelect" disabled>
-<option value="">-- Choose Amount --</option>
-</select>
+<div class="trust-badges">
+<div class="badge">✓ Trusted Global Partners</div>
+<div class="badge">✓ Secure Transactions</div>
+<div class="badge">✓ Instant Activation</div>
 </div>
 </div>
 </section>
@@ -152,34 +498,251 @@ border:1px solid #ccc;
 <section class="stats">
 <div class="container">
 <div class="stats-grid">
-<div class="stat-card"><div class="stat-number">100+</div><div class="stat-label">Countries Supported</div></div>
-<div class="stat-card"><div class="stat-number">24/7</div><div class="stat-label">Service Availability</div></div>
-<div class="stat-card"><div class="stat-number">3</div><div class="stat-label">Trusted Service Categories</div></div>
+<div class="stat-card">
+<div class="stat-number">100+</div>
+<div class="stat-label">Countries Supported</div>
+</div>
+<div class="stat-card">
+<div class="stat-number">24/7</div>
+<div class="stat-label">Service Availability</div>
+</div>
+<div class="stat-card">
+<div class="stat-number">3</div>
+<div class="stat-label">Trusted Service Categories</div>
+</div>
 </div>
 </div>
 </section>
 
-<!-- SERVICES (unchanged) -->
-<section class="section" id="services">
+<!-- =========================
+SERVICES
+========================= -->
+<section class="section" id="services" style="background:#f8fafc;">
 <div class="container">
 <div class="section-title">
-<h2>Choose Your Service</h2>
+<h2 style="margin-bottom: 40px;">Choose Your Service</h2>
 </div>
 
-<!-- your existing service cards remain unchanged -->
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:25px;text-align:center;">
+
+<!-- Box 1: Top-Up (LIVE API DROPDOWNS - DING LINKS REMOVED) -->
+<div style="background:white;padding:30px;border-radius:16px;box-shadow:0 10px 25px rgba(0,0,0,.06); display: flex; flex-direction: column; justify-content: space-between;">
+<div>
+<h2 style="margin-bottom: 20px; display: flex; align-items: center; justify-content: center; gap: 10px;">
+<svg xmlns="http://w3.org" width="48" height="48" fill="currentColor" class="bi bi-telephone-plus" viewBox="0 0 16 16">
+  <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.6 17.6 0 0 0 4.168 6.608 17.6 17.6 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.68.68 0 0 0-.58-.122l-2.19.547a1.75 1.75 0 0 1-1.657-.459L5.482 8.062a1.75 1.75 0 0 1-.46-1.657l.548-2.19a.68.68 0 0 0-.122-.58zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z"/>
+  <path fill-rule="evenodd" d="M12.5 1a.5.5 0 0 1 .5.5V3h1.5a.5.5 0 0 1 0 1H13v1.5a.5.5 0 0 1-1 0V4h-1.5a.5.5 0 0 1 0-1H12V1.5a.5.5 0 0 1 .5-.5"/>
+</svg>Top-Up</h2>
+
+<!-- Live Interacting Select Fields -->
+<div class="form-group">
+    <label for="countrySelect">1. Destination Country</label>
+    <select id="countrySelect" class="widget-select">
+        <option value="">-- Loading Global Networks --</option>
+    </select>
+</div>
+
+<div class="form-group">
+    <label for="providerSelect">2. Local Carrier Network</label>
+    <select id="providerSelect" class="widget-select" disabled>
+        <option value="">-- Select Country First --</option>
+    </select>
+</div>
+
+<div class="form-group" style="margin-bottom: 25px;">
+    <label for="productSelect">3. Recharge Package / Amount</label>
+    <select id="productSelect" class="widget-select" disabled>
+        <option value="">-- Select Operator First --</option>
+    </select>
+</div>
+</div>
+<!-- Initialized safe disabled state button -->
+<a href="javascript:void(0);" id="dingCheckoutBtn" class="service-btn" target="_blank" style="width: 100%; pointer-events: none; background: #94a3b8; opacity: 0.6;">Top Up Now</a>
+</div>
+
+<!-- Box 2: eSIM -->
+<div style="background:white;padding:30px;border-radius:16px;box-shadow:0 10px 25px rgba(0,0,0,.06); display: flex; flex-direction: column; justify-content: space-between;">
+<div>
+<h2 style="margin-bottom: 20px; display: flex; align-items: center; justify-content: center; gap: 10px;">
+<svg xmlns="http://w3.org" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="e-sim-icon"><path d="M12 14v4"/><path d="M14.172 2a2 2 0 0 1 1.414.586l3.828 3.828A2 2 0 0 1 20 7.828V20a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/><path d="M8 14h8"/><rect x="8" y="10" width="8" height="8" rx="1"/>
+</svg>eSIM</h2>
+<ul style="list-style:none; padding:0; line-height:2.0; margin-bottom: 25px;">
+<li> ✓ Instant activation</li>
+<li> ✓ Travel friendly</li>
+<li> ✓ No physical SIM</li>
+<li> ✓ Flexible packages</li> 
+</ul>
+</div>
+<a href="https://airalo.com" class="service-btn">Get eSIM</a>
+</div>
+
+<!-- Box 3: Healthcare -->
+<div style="background:white;padding:30px;border-radius:16px;box-shadow:0 10px 25px rgba(0,0,0,.06); display: flex; flex-direction: column; justify-content: space-between;">
+<div>
+<h2 style="margin-bottom: 20px; display: flex; align-items: center; justify-content: center; gap: 10px;">
+<svg xmlns="http://w3.org" height="48" width="48" viewBox="0 -960 960 960" fill="#1f1f1f"><path d="M480-480Zm0 360q-18 0-34.5-6.5T416-146L148-415q-35-35-51.5-80T80-589q0-103 67-177t167-74q48 0 90.5 19t75.5 53q32-34 74.5-53t90.5-19q100 0 167.5 74T880-590q0 49-17 94t-51 80L543-146q-13 13-29 19.5t-34 6.5Zm40-520q10 0 19 5t14 13l68 102h166q7-17 10.5-34.5T801-590q-2-69-46-118.5T645-758q-31 0-59.5 12T536-711l-27 29q-5 6-13 9.5t-16 3.5q-8 0-16-3.5t-14-9.5l-27-29q-21-23-49-36t-60-13q-66 0-110 50.5T160-590q0 18 3 35.5t10 34.5h187q10 0 19 5t14 13l35 52 54-162q4-12 14.5-20t23.5-8Zm12 130-54 162q-4 12-15 20t-24 8q-10 0-19-5t-14-13l-68-102H236l237 237q2 2 3.5 2.5t3.5.5q2 0 3.5-.5t3.5-2.5l236-237H600q-10 0-19-5t-15-13l-34-52Z"/>
+</svg>Healthcare</h2>
+<ul style="list-style:none; padding:0; line-height:2.0; margin-bottom: 25px;">
+<li> ✓ Licensed healthcare</li>
+<li> ✓ Global support</li>
+<li> ✓ Digital management</li>
+<li> ✓ Comprehensive coverage</li>
+</ul>
+</div>
+<a href="https://54healthcare.com" class="service-btn">Learn More</a>
+</div>
+
+</div>
+</div>
+</section>
+<!-- =========================
+HOW IT WORKS?
+========================= -->
+<section class="section" id="how" style="background:#f8fafc;">
+<div class="container">
+<div class="section-title">
+<h2>How It Works?</h2>
+<p>Simple 3-step process to get started in minutes.</p>
+</div>
+
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:25px;text-align:center;">
+
+<div style="background:white;padding:30px;border-radius:16px;box-shadow:0 10px 25px rgba(0,0,0,.06); border: 1px solid var(--border);">
+<div style="width:60px;height:60px;border-radius:50%;background:#0057ff;color:white;display:flex;align-items:center;justify-content:center;margin:auto;margin-bottom:15px;font-weight:800;">1</div>
+<h3>Choose Service</h3>
+<p style="color:#64748b;">Select eSIM, top-up or healthcare service.</p>
+</div>
+
+<div style="background:white;padding:30px;border-radius:16px;box-shadow:0 10px 25px rgba(0,0,0,.06); border: 1px solid var(--border);">
+<div style="width:60px;height:60px;border-radius:50%;background:#0057ff;color:white;display:flex;align-items:center;justify-content:center;margin:auto;margin-bottom:15px;font-weight:800;">2</div>
+<h3>Complete Checkout</h3>
+<p style="color:#64748b;">Pay securely via trusted partner systems.</p>
+</div>
+
+<div style="background:white;padding:30px;border-radius:16px;box-shadow:0 10px 25px rgba(0,0,0,.06); border: 1px solid var(--border);">
+<div style="width:60px;height:60px;border-radius:50%;background:#0057ff;color:white;display:flex;align-items:center;justify-content:center;margin:auto;margin-bottom:15px;font-weight:800;">3</div>
+<h3>Instant Activation</h3>
+<p style="color:#64748b;">Your service activates immediately worldwide.</p>
+</div>
+
+</div>
 </div>
 </section>
 
-<!-- FOOTER (unchanged) -->
-<footer style="background:#0f172a;color:white;padding:60px 0;">
+<!-- =========================
+PARTNERS
+========================= -->
+<section class="section" id="partners" style="background:#ffffff;">
 <div class="container">
-© 2026 ShonaPay
+<div class="section-title">
+<h2>Trusted Partners</h2>
+<p>We only connect users with verified global service providers.</p>
+</div>
+
+<div style="display:flex;justify-content:center;flex-wrap:wrap;gap:20px;">
+<div style="padding:15px 25px;background:#f8fafc;border-radius:50px;font-weight:700;color:#0f172a; border: 1px solid var(--border);">Airalo</div>
+<div style="padding:15px 25px;background:#f8fafc;border-radius:50px;font-weight:700;color:#0f172a; border: 1px solid var(--border);">Ding</div>
+<div style="padding:15px 25px;background:#f8fafc;border-radius:50px;font-weight:700;color:#0f172a; border: 1px solid var(--border);">Healthcare Providers</div>
+</div>
+</div>
+</section>
+
+<!-- =========================
+FAQ
+========================= -->
+<section class="section" id="faq" style="background:#f8fafc;">
+<div class="container">
+<div class="section-title">
+<h2>Frequently Asked Questions</h2>
+<p>Everything you need to know before using ShonaPay.</p>
+</div>
+
+<div style="max-width:800px;margin:auto;">
+<details style="background:white;padding:18px;border-radius:12px;margin-bottom:12px; border: 1px solid var(--border);">
+<summary style="font-weight:700;cursor:pointer;">Is ShonaPay a service provider?</summary>
+<p style="margin-top:10px;color:#64748b;">No. ShonaPay connects users to trusted third-party providers like Airalo, Ding, and healthcare partners.</p>
+</details>
+
+<details style="background:white;padding:18px;border-radius:12px;margin-bottom:12px; border: 1px solid var(--border);">
+<summary style="font-weight:700;cursor:pointer;">Are services instant?</summary>
+<p style="margin-top:10px;color:#64748b;">Yes. Most services such as eSIM activation and mobile top-ups are delivered within minutes.</p>
+</details>
+
+<details style="background:white;padding:18px;border-radius:12px;margin-bottom:12px; border: 1px solid var(--border);">
+<summary style="font-weight:700;cursor:pointer;">Is payment secure?</summary>
+<p style="margin-top:10px;color:#64748b;">Yes. All payments are processed securely through partner platforms with encryption.</p>
+</details>
+
+<details style="background:white;padding:18px;border-radius:12px;margin-bottom:12px; border: 1px solid var(--border);">
+<summary style="font-weight:700;cursor:pointer;">Can I use services worldwide?</summary>
+<p style="margin-top:10px;color:#64748b;">Yes. Services are available in 100+ countries depending on the provider.</p>
+</details>
+
+<details style="background:white;padding:18px;border-radius:12px;margin-bottom:12px; border: 1px solid var(--border);">
+<summary style="font-weight:700;cursor:pointer;">Can I use an eSIM internationally?</summary>
+<p style="margin-top:10px;color:#64748b;">Yes, depending on the selected plan and destination.</p>
+</details>
+</div>
+</div>
+</section>
+
+<!-- =========================
+WHATSAPP FLOATING CTA
+========================= -->
+<a href="https://wa.me" target="_blank" style="position:fixed; bottom:20px; right:20px; background:#25D366; color:white; width:60px; height:60px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:28px; box-shadow:0 10px 25px rgba(0,0,0,.2); z-index:9999; text-decoration:none;" aria-label="Chat on WhatsApp">💬</a>
+
+<!-- =========================
+FOOTER
+========================= -->
+<footer style="background:#0f172a;color:white;padding:60px 0;margin-top:80px;">
+<div class="container">
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:30px;">
+
+<!-- BRAND -->
+<div>
+<h2 style="margin-bottom:15px;">ShonaPay</h2>
+<p style="color:#cbd5e1;">Connecting users to trusted global services including eSIMs, mobile top-ups, and healthcare providers.</p>
+</div>
+
+<!-- QUICK LINKS -->
+<div>
+<h3 style="margin-bottom:15px;">Quick Links</h3>
+<p style="margin-bottom:8px;"><a href="#services" style="color:white;text-decoration:none;">Services</a></p>
+<p style="margin-bottom:8px;"><a href="#how" style="color:white;text-decoration:none;">How It Works?</a></p>
+<p style="margin-bottom:8px;"><a href="#faq" style="color:white;text-decoration:none;">FAQ</a></p>
+<p><a href="#contact" style="color:white;text-decoration:none;">Contact</a></p>
+</div>
+
+<!-- LEGAL -->
+<div>
+<h3 style="margin-bottom:15px;">Legal</h3>
+<p style="margin-bottom:8px;"><a href="#" style="color:white;text-decoration:none;">Privacy Policy</a></p>
+<p style="margin-bottom:8px;"><a href="#" style="color:white;text-decoration:none;">Terms of Service</a></p>
+<p style="margin-top:15px;color:#cbd5e1;font-size:.85rem;">Affiliate disclosure: Some links may earn us a commission at no extra cost to you.</p>
+</div>
+
+<!-- CONTACT -->
+<div>
+<h3 style="margin-bottom:15px;">Contact</h3>
+<p>Email: <br>
+<a href="mailto:support@shonapay.com" style="color:#00c896;text-decoration:none;">support@shonapay.com</a>
+</p>
+</div>
+
+</div>
+
+<!-- COPYRIGHT -->
+<div style="text-align:center;margin-top:40px;color:#94a3b8;font-size:.9rem;">
+© 2026 ShonaPay. All rights reserved.
+</div>
 </div>
 </footer>
 
-<!-- JS -->
+<!-- =========================
+JAVASCRIPT ROUTING ENGINES
+========================= -->
 <script>
-// MOBILE MENU
+// MOBILE NAVIGATION INTERFACES
 function openMenu(){
 document.getElementById("mobileMenu").classList.add("active");
 document.getElementById("overlay").classList.add("active");
@@ -190,93 +753,153 @@ document.getElementById("mobileMenu").classList.remove("active");
 this.classList.remove("active");
 });
 
-// ===============================
-// TOP-UP WIDGET LOGIC (NEW)
-// ===============================
+document.querySelectorAll(".mobile-menu a").forEach(link=>{
+link.addEventListener("click", ()=>{
+document.getElementById("mobileMenu").classList.remove("active");
+document.getElementById("overlay").classList.remove("active");
+});
+});
 
+// =========================================================
+// 🚀 SHONAPAY RECHARGE UTILITY ENGINE CONNECTION
+// =========================================================
+// CRUCIAL: Replace the text inside quotes with your real live Render link 
 const BACKEND_URL = "https://africonnect-backend-x5so.onrender.com";
 
 const countrySelect = document.getElementById('countrySelect');
 const providerSelect = document.getElementById('providerSelect');
 const productSelect = document.getElementById('productSelect');
+const checkoutBtn = document.getElementById('dingCheckoutBtn');
 
-// Load countries
+// 🔹 STEP 1: Fetch and populate global country drop-downs on startup
 document.addEventListener("DOMContentLoaded", async () => {
-try {
-const res = await fetch(`${BACKEND_URL}/api/ding/countries`);
-const data = await res.json();
-
-if (data?.Items) {
-data.Items.forEach(c => {
-const opt = document.createElement("option");
-opt.value = c.CountryIso;
-opt.textContent = c.CountryName;
-countrySelect.appendChild(opt);
-});
-}
-} catch (e) {
-console.error(e);
-}
-});
-
-// Country change → providers
-countrySelect.addEventListener("change", async (e) => {
-const code = e.target.value;
-
-providerSelect.innerHTML = '<option>-- Choose Operator --</option>';
-productSelect.innerHTML = '<option>-- Choose Amount --</option>';
-providerSelect.disabled = true;
-productSelect.disabled = true;
-
-if (!code) return;
-
-try {
-const res = await fetch(`${BACKEND_URL}/api/ding/providers?countryCode=${code}`);
-const data = await res.json();
-
-if (data?.Items?.length) {
-providerSelect.disabled = false;
-
-data.Items.forEach(p => {
-const opt = document.createElement("option");
-opt.value = p.ProviderCode;
-opt.textContent = p.Name;
-providerSelect.appendChild(opt);
-});
-}
-} catch (e) {
-console.error(e);
-}
+    try {
+        const response = await fetch(`${BACKEND_URL}/api/ding/countries`);
+        
+        if (!response.ok) throw new Error(`HTTP Error Status: ${response.status}`);
+        const data = await response.json();
+        
+        countrySelect.innerHTML = '<option value="">-- Choose a Country --</option>';
+        
+        if (data && data.Items) {
+            // Sort array alphabetically
+            data.Items.sort((a, b) => a.CountryName.localeCompare(b.CountryName));
+            
+            data.Items.forEach(country => {
+                const option = document.createElement('option');
+                option.value = country.CountryIso;
+                option.textContent = country.CountryName;
+                countrySelect.appendChild(option);
+            });
+        }
+    } catch (error) {
+        console.error("Error connecting to country API stream:", error);
+        countrySelect.innerHTML = '<option value="">⚠️ Country listing offline</option>';
+    }
 });
 
-// Provider change → products
-providerSelect.addEventListener("change", async (e) => {
-const code = e.target.value;
+// 🔹 STEP 2: Detect country change to query and filter local carriers
+countrySelect.addEventListener('change', async (event) => {
+    const countryCode = event.target.value;
+    
+    // Safety freeze lower dropdown layers
+    providerSelect.innerHTML = '<option value="">-- Choose Operator --</option>';
+    providerSelect.disabled = true;
+    productSelect.innerHTML = '<option value="">-- Choose Amount --</option>';
+    productSelect.disabled = true;
+    
+    // Gray out checkout button states
+    checkoutBtn.href = "javascript:void(0);";
+    checkoutBtn.style.pointerEvents = "none";
+    checkoutBtn.style.background = "#94a3b8";
+    checkoutBtn.style.opacity = "0.6";
 
-productSelect.innerHTML = '<option>-- Choose Amount --</option>';
-productSelect.disabled = true;
+    if (!countryCode) return;
+    providerSelect.innerHTML = '<option value="">Loading carriers...</option>';
 
-if (!code) return;
+    try {
+        const response = await fetch(`${BACKEND_URL}/api/ding/providers?countryCode=${countryCode}`);
+        if (!response.ok) throw new Error(`HTTP Provider Error Status: ${response.status}`);
+        const data = await response.json();
 
-try {
-const res = await fetch(`${BACKEND_URL}/api/ding/products?providerCode=${code}`);
-const data = await res.json();
+        providerSelect.innerHTML = '<option value="">-- Choose Operator --</option>';
 
-if (data?.Items?.length) {
-productSelect.disabled = false;
-
-data.Items.forEach(p => {
-const opt = document.createElement("option");
-opt.value = p.SkuCode;
-opt.textContent =
-`${p.LocalizationKey || 'Top-Up'} - ${p.Maximum?.SendValue || ''} ${p.Maximum?.SendCurrencyIso || ''}`;
-
-productSelect.appendChild(opt);
+        if (data && data.Items && data.Items.length > 0) {
+            providerSelect.disabled = false;
+            data.Items.forEach(provider => {
+                const option = document.createElement('option');
+                option.value = provider.ProviderCode;
+                option.textContent = provider.Name;
+                providerSelect.appendChild(option);
+            });
+        } else {
+            providerSelect.innerHTML = '<option value="">No operators found</option>';
+        }
+    } catch (error) {
+        console.error("Error mapping local telecommunication networks:", error);
+        providerSelect.innerHTML = '<option value="">⚠️ Network lookup offline</option>';
+    }
 });
-}
-} catch (e) {
-console.error(e);
-}
+
+// 🔹 STEP 3: Load real-time retail value packages for the selected network
+providerSelect.addEventListener('change', async (event) => {
+    const providerCode = event.target.value;
+    
+    productSelect.innerHTML = '<option value="">-- Choose Amount --</option>';
+    productSelect.disabled = true;
+    
+    checkoutBtn.href = "javascript:void(0);";
+    checkoutBtn.style.pointerEvents = "none";
+    checkoutBtn.style.background = "#94a3b8";
+    checkoutBtn.style.opacity = "0.6";
+
+    if (!providerCode) return;
+
+    productSelect.innerHTML = '<option value="">Loading packages...</option>';
+
+    try {
+        const response = await fetch(`${BACKEND_URL}/api/ding/products?providerCode=${providerCode}`);
+        if (!response.ok) throw new Error(`HTTP Product Error Status: ${response.status}`);
+        const data = await response.json();
+
+        productSelect.innerHTML = '<option value="">-- Choose Amount --</option>';
+
+        if (data && data.Items && data.Items.length > 0) {
+            productSelect.disabled = false;
+            data.Items.forEach(product => {
+                const option = document.createElement('option');
+                option.value = product.SkuCode;
+                
+                const currency = product.Maximum?.SendCurrencyIso || "USD";
+                const valueAmount = product.Maximum?.SendValue || "Fixed";
+                const description = product.LocalizationKey || "Data/Airtime Bundle";
+                
+                option.textContent = `${description} (${valueAmount} ${currency})`;
+                productSelect.appendChild(option);
+            });
+        } else {
+            productSelect.innerHTML = '<option value="">No packages available</option>';
+        }
+    } catch (error) {
+        console.error("Error building inventory matrices:", error);
+        productSelect.innerHTML = '<option value="">⚠️ Package catalog offline</option>';
+    }
+});
+
+// 🔹 STEP 4: Activate checkout button link dynamically upon choosing a final product
+productSelect.addEventListener('change', (event) => {
+    const selectedSku = event.target.value;
+    if (selectedSku) {
+        checkoutBtn.href = `https://ding.com{selectedSku}`;
+        checkoutBtn.style.pointerEvents = "auto";
+        checkoutBtn.style.background = "var(--primary)";
+        checkoutBtn.style.opacity = "1";
+    } else {
+        checkoutBtn.href = "javascript:void(0);";
+        checkoutBtn.style.pointerEvents = "none";
+        checkoutBtn.style.background = "#94a3b8";
+        checkoutBtn.style.opacity = "0.6";
+    }
 });
 </script>
 
