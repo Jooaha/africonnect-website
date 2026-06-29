@@ -556,7 +556,7 @@ SERVICES
     </select>
 </div>
 </div>
-<a href="https://ding.com" id="dingCheckoutBtn" class="service-btn" target="_blank" style="width: 100%;">Top Up Now</a>
+<!-- Updated button layout that starts disabled --> <a href="#" id="dingCheckoutBtn" class="service-btn" target="_blank" style="width: 100%; pointer-events: none; background: #94a3b8;">Top Up Now</a>
 </div>
 
 <!-- Box 2: eSIM -->
@@ -880,15 +880,20 @@ providerSelect.addEventListener('change', async (event) => {
     }
 });
 
-// Step 4: Watch product selection to dynamically configure checkout target redirection
+// Step 4: Activate button and inject checkout link when package is chosen
 productSelect.addEventListener('change', (event) => {
     const selectedSku = event.target.value;
     if (selectedSku) {
         checkoutBtn.href = `https://ding.com{selectedSku}`;
+        checkoutBtn.style.pointerEvents = "auto";
+        checkoutBtn.style.background = "#0057ff"; // Returns to your bright primary blue
     } else {
-        checkoutBtn.href = "https://ding.com";
+        checkoutBtn.href = "#";
+        checkoutBtn.style.pointerEvents = "none";
+        checkoutBtn.style.background = "#94a3b8"; // Grays out again
     }
 });
+
 </script>
 
 </body>
